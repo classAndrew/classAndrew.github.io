@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Story on Andrew&#39;s Blog</title>
+    <link>https://andw.me/tags/story/</link>
+    <description>Recent content in Story on Andrew&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Sep 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://andw.me/tags/story/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Quest for the Atomic G Orbital</title>
+      <link>https://andw.me/posts/g_orbital/</link>
+      <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://andw.me/posts/g_orbital/</guid>
+      <description>&lt;p&gt;The 5 year journey to finding the G Orbital of an atom.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How I Got into Coding</title>
+      <link>https://andw.me/posts/first_code/</link>
+      <pubDate>Tue, 27 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://andw.me/posts/first_code/</guid>
+      <description>&lt;p&gt;In today&amp;rsquo;s digitized age, we are more connected to computers than ever before.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
