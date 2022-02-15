@@ -13,7 +13,10 @@
 
 
 <meta name="author" content="Andrew" />
-<meta name="description" content="Andrew&#39;s stuff" />
+<meta name="description" content="You&#39;ll find me rambling on about things here.
+  It&#39;s a pretty cool place if you like tech or computers.
+  
+  *waves at twitter and discord users*" />
 
 
 
@@ -23,7 +26,10 @@
 
 
 <meta property="og:title" content="404 Page not found" />
-<meta property="og:description" content="Andrew&#39;s stuff" />
+<meta property="og:description" content="You&#39;ll find me rambling on about things here.
+  It&#39;s a pretty cool place if you like tech or computers.
+  
+  *waves at twitter and discord users*" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://andw.me/404.html" />
 <meta property="og:image" content="https://andw.me/me/background.jpg"/>
@@ -35,7 +41,10 @@
 <meta name="twitter:image" content="https://andw.me/me/background.jpg"/>
 
 <meta name="twitter:title" content="404 Page not found"/>
-<meta name="twitter:description" content="Andrew&#39;s stuff"/>
+<meta name="twitter:description" content="You&#39;ll find me rambling on about things here.
+  It&#39;s a pretty cool place if you like tech or computers.
+  
+  *waves at twitter and discord users*"/>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
@@ -123,22 +132,54 @@
             
 <div class="dream-404-container">
   <div class="ui basic center aligned segment">
-    
-      <h1 class="ui header">
-        Oops...You are lost in dream.
-        <span class="sub header">Don't worry though, click the button below to wake up.</span>
-      </h1>
-      <p>
-        <button class="ui secondary button" onclick="window.location.href = 'https:\/\/andw.me'">Back to home</button>
-      </p>
-    
+    <div id="message" class="ui inverted header">
+      <h2 id="nfnd">Error 404. </h2>
+      <h1>Page Not Found ¯\_(ツ)_/¯</h1>
+      <p>The specified file was not found on this website. Please check the URL for mistakes and try again.</p>
+      <h3>Something supposed to be here?</h3>
+      <p>Contact Andrew and tell him to fix it.</p>
+    </div>
+    <title>Page Not Found</title>
   </div>
 </div>
+
+<script>
+  const nfnd = document.querySelector("#nfnd");
+  let state = 0, cumu = 0;
+  const kaomoji = ["(⌐■_■)", "( •_•)>⌐■-■", "( -_-)>⌐■-■"]
+  
+  setInterval(()=>{
+    if (cumu < 15) {
+      nfnd.textContent = "Error 404. (⌐■_■)";
+    } 
+    else if (cumu < 20) {
+      nfnd.textContent = "Error 404. ( •_•)>⌐■-■";
+    }
+    else if (cumu < 23) {
+      nfnd.textContent = "Error 404. ( -_-)>⌐■-■";
+    }
+    else if (cumu < 25) {
+      nfnd.textContent = "Error 404. ( •_•)>⌐■-■";
+    }
+    else if (cumu < 27) {
+      nfnd.textContent = "Error 404. ( -_-)>⌐■-■";
+    }
+    else if (cumu < 40) {
+      nfnd.textContent = "Error 404. ( •_•)>⌐■-■";
+    }
+    else if (cumu > 55) {
+      cumu = 0
+    }
+
+    cumu += 1;
+  }, 50);
+</script>
+
 
 
             <footer class="ui basic center aligned segment" style="background-color: transparent;">
               
-              <p>© 2021 Andrew&#39;s Blog</p>
+              <p>© 2021 - 2022 Andrew&#39;s Blog</p>
               
 
               <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
@@ -189,6 +230,8 @@
     
       
     
+      
+    
     
 
     
@@ -214,6 +257,12 @@
           
             <a class="ui label" href="/tags/machine-learning/" title="Machine Learning">
               Machine Learning
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/math/" title="Math">
+              Math
             </a>
           
           

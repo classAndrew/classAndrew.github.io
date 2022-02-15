@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>All Categories | Andrew&#39;s Blog</title>
+    <title>Math | Andrew&#39;s Blog</title>
 
     
 <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -22,16 +22,16 @@
 
 <meta name="generator" content="Hugo 0.68.3" />
 
-<link rel="canonical" href="https://andw.me/categories/" />
+<link rel="canonical" href="https://andw.me/tags/math/" />
 
 
-<meta property="og:title" content="Categories" />
+<meta property="og:title" content="Math" />
 <meta property="og:description" content="You&#39;ll find me rambling on about things here.
   It&#39;s a pretty cool place if you like tech or computers.
   
   *waves at twitter and discord users*" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://andw.me/categories/" />
+<meta property="og:url" content="https://andw.me/tags/math/" />
 <meta property="og:image" content="https://andw.me/me/background.jpg"/>
 <meta property="og:updated_time" content="2021-11-20T00:00:00+00:00" />
 
@@ -40,7 +40,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://andw.me/me/background.jpg"/>
 
-<meta name="twitter:title" content="Categories"/>
+<meta name="twitter:title" content="Math"/>
 <meta name="twitter:description" content="You&#39;ll find me rambling on about things here.
   It&#39;s a pretty cool place if you like tech or computers.
   
@@ -226,39 +226,44 @@
 </header>
 
 
-<div class="ui container">
-  <article class="ui segment dream-categories-section">
-    <h2 class="ui header">All Categories<span class="ui grey sub header">1 category</span>
-    </h2>
+<div class="ui relaxed grid dream-grid">
+  
+  
+  <div class="sixteen wide mobile eight wide tablet eight wide computer four wide large screen four wide widescreen column dream-column">
+    <article class="ui attached segment card dream-card">
+  <a class="image" href="https://andw.me/posts/arbitary_curve/">
+    
+    <img src="/img/arbitrary_curve_2.png" alt="Arbitrary Curve Fitting" />
+    
+  </a>
 
-    
-    <h3 class="ui header">
-      <a href="/categories/eng/">ENG</a>&nbsp;5 articles</h3>
-    <ul>
-      
-      <li>
-        <a href="/posts/arbitary_curve/">Arbitrary Curve Fitting</a>
-      </li>
-      
-      <li>
-        <a href="/posts/hugo_switch/">Switching to Hugo</a>
-      </li>
-      
-      <li>
-        <a href="/posts/g_orbital/">The Quest for the Atomic G Orbital</a>
-      </li>
-      
-      <li>
-        <a href="/posts/sat_gpa/">SATs and GPAs matter! ...But by how much?</a>
-      </li>
-      
-      <li>
-        <a href="/posts/first_code/">How I Got into Coding</a>
-      </li>
-      
-    </ul>
-    
-  </article>
+  <div class="content">
+    <h2 class="ui medium header">
+      <a href="/posts/arbitary_curve/">Arbitrary Curve Fitting</a>
+    </h2>
+    <div class="meta">
+      <p class="date">
+        
+          <span data-format="luxon">2021-11-20T00:00:00Z</span>
+        
+      </p>
+    </div>
+    <div class="description">
+      <p>Is it possible to determine the best fitting curve to a series of data points just by knowing the form of the function?</p>
+    </div>
+  </div>
+
+  <div class="extra content">
+    <div class="author"><img class="ui avatar image" src="/me/bunny.png" alt="avatar" />Andrew</div>
+    <div class="reading-time">
+      <i class="clock icon"></i>5 minutes read</div>
+  </div>
+</article>
+
+  </div>
+  
+
+  
 </div>
 
 
@@ -550,7 +555,29 @@
 <script src="/js/main.js"></script>
 <script src="/js/theme.js"></script>
 
-     
+    
+
+
+<script src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"></script>
+
+<script>
+  format()
+
+  function format() {
+    $('span[data-format="luxon"]').each(function () {
+      var date = $(this).text()
+
+      $(this).text(luxon.DateTime.fromISO(date, { locale: "en" }).toFormat("dd-MM-yyyy"))
+    })
+  }
+</script>
+
+
+
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/grid.js"></script>
+
 
     
 

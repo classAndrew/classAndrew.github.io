@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>How I Got into Coding | Andrew&#39;s Blog</title>
+    <title>Arbitrary Curve Fitting | Andrew&#39;s Blog</title>
 
     
 <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -13,31 +13,31 @@
 
 
 <meta name="author" content="Andrew" />
-<meta name="description" content="In today&amp;rsquo;s digitized age, we are more connected to computers than ever before.
+<meta name="description" content="Is it possible to determine the best fitting curve to a series of data points just by knowing the form of the function?
 " />
 
 
 
 <meta name="generator" content="Hugo 0.68.3" />
 
-<link rel="canonical" href="https://andw.me/posts/first_code/" />
+<link rel="canonical" href="https://andw.me/posts/arbitary_curve/" />
 
 
-<meta property="og:title" content="How I Got into Coding" />
-<meta property="og:description" content="In today&rsquo;s digitized age, we are more connected to computers than ever before." />
+<meta property="og:title" content="Arbitrary Curve Fitting" />
+<meta property="og:description" content="Is it possible to determine the best fitting curve to a series of data points just by knowing the form of the function?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://andw.me/posts/first_code/" />
-<meta property="og:image" content="https://andw.me/img/first_code_1.png" />
-<meta property="article:published_time" content="2021-07-27T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-07-27T00:00:00+00:00" />
+<meta property="og:url" content="https://andw.me/posts/arbitary_curve/" />
+<meta property="og:image" content="https://andw.me/img/arbitrary_curve_2.png" />
+<meta property="article:published_time" content="2021-11-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-14T00:00:00+00:00" />
 
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://andw.me/img/first_code_1.png"/>
+<meta name="twitter:image" content="https://andw.me/img/arbitrary_curve_2.png"/>
 
-<meta name="twitter:title" content="How I Got into Coding"/>
-<meta name="twitter:description" content="In today&rsquo;s digitized age, we are more connected to computers than ever before."/>
+<meta name="twitter:title" content="Arbitrary Curve Fitting"/>
+<meta name="twitter:description" content="Is it possible to determine the best fitting curve to a series of data points just by knowing the form of the function?"/>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
@@ -145,12 +145,16 @@
     <div class="ui segment toc">
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#childhood-experiences">Childhood Experiences</a>
+    <li><a href="#the-perceptron">The Perceptron</a></li>
+    <li><a href="#the-linear-regression-problem">The Linear Regression Problem</a>
       <ul>
-        <li><a href="#i-tried-to-learn-to-code-using-books--online-resources-but-i-kept-giving-up-too-early">I tried to learn to code using books &amp; online resources, but I kept giving up too early.</a></li>
-        <li><a href="#so-i-had-an-idea">So I had an idea&hellip;</a></li>
+        <li><a href="#the-cost-function">The Cost Function</a></li>
+        <li><a href="#the-perceptron-approach">The Perceptron Approach</a></li>
+        <li><a href="#gradient-descent">Gradient Descent</a></li>
       </ul>
     </li>
+    <li><a href="#polynomial-regression">Polynomial Regression</a></li>
+    <li><a href="#nonlinear-fitting">Nonlinear fitting</a></li>
     <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
@@ -163,7 +167,7 @@
   <div class="sixteen wide mobile sixteen wide tablet ten wide computer column markdown-body dream-single" id="dream-save-post-as-img">
     <section class="ui top attached segment">
       <header>
-        <h1 class="ui large header">How I Got into Coding<span class="sub header">
+        <h1 class="ui large header">Arbitrary Curve Fitting<span class="sub header">
             <span class="left">
               @
               
@@ -173,15 +177,15 @@
               
 
               | 
-                  <span data-format="luxon">2021-07-27T00:00:00Z</span>
+                  <span data-format="luxon">2021-11-20T00:00:00Z</span>
                 
 
-              | 6 minutes read
+              | 5 minutes read
 
               
               | Update at
                 
-                  <span data-format="luxon">2021-07-27T00:00:00Z</span>
+                  <span data-format="luxon">2022-02-14T00:00:00Z</span>
                 
               
             </span>
@@ -191,10 +195,10 @@
   <a href="#" class="save-as-image" title="Save as image" onclick="savePostAsImg()">
     <i class="save icon"></i>
   </a>
-  <a href="https://twitter.com/intent/tweet?text=How%20I%20Got%20into%20Coding&url=https%3a%2f%2fandw.me%2fposts%2ffirst_code%2f" title="Twitter">
+  <a href="https://twitter.com/intent/tweet?text=Arbitrary%20Curve%20Fitting&url=https%3a%2f%2fandw.me%2fposts%2farbitary_curve%2f" title="Twitter">
     <i class="twitter icon"></i>
   </a>
-  <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fandw.me%2fposts%2ffirst_code%2f" title="Facebook">
+  <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fandw.me%2fposts%2farbitary_curve%2f" title="Facebook">
     <i class="facebook icon"></i>
   </a>
 </span>
@@ -206,71 +210,86 @@
 
       <article class="main">
         
-        <img class="cover" src="/img/first_code_1.png" />
+        <img class="cover" src="/img/arbitrary_curve_2.png" />
         
 
-        <p>In today&rsquo;s digitized age, we are more connected to computers than ever before.</p>
-<p>Whether you&rsquo;re a kid, a teen, or a senior, I think it&rsquo;s always good to appreciate the impact computers (and computer programming) has on our lives.</p>
-<p>We use software all the time, but not all programs can do exactly what we want them to do. Whether it&rsquo;s modding a video game or building physics simulations, there&rsquo;s just that feeling you get sometimes when you think to yourself,</p>
-<blockquote>
-<p>&ldquo;Man, I wish I could make a thing that could do <code>&lt;insert your specific task&gt;</code>.&rdquo;</p>
-</blockquote>
-<h2 id="childhood-experiences">Childhood Experiences</h2>
-<p>I remember being in 5th grade sitting in the computer lab at my elementary school typing away on <a href="http://nitrotype.com">Nitrotype</a> when a group of students began to huddle around one classmate. Naturally, I got out of my desk and joined in to see what was happening and what I saw blew my mind: the kid had just gotten millions of these in-game dollars assigned to his account.</p>
-<p>The rest of the students remained skeptical, however, and I began questioning how he was able to obtain <em>that</em> much in-game money. He eventually gave in and showed the &lsquo;inspect-element&rsquo; trick to us. Now, I say that there was a group of students that learned about this, but it was more like just 3-4 other students, so we held on to this unspoken power and pretended to be like gods of computers.</p>
-<p>And after that? Well, basically an arms-race of sorts was kicked off between the other students. We&rsquo;d show the entire class who could create the whackiest <a href="http://nitrotype.com">Nitrotype</a> profiles using the &lsquo;inspect-element&rsquo; trick. This competition eventually grew out of <a href="http://nitrotype.com">Nitrotype</a> and into some other games like</p>
-<ol>
-<li><a href="https://play2048.co/">2048</a></li>
-<li>Flappy Bird</li>
-<li><a href="https://www.coolmathgames.com/0-worlds-hardest-game">The World&rsquo;s Hardest Game</a></li>
-</ol>
-<p>You might be asking, &ldquo;Andrew, <a href="https://stackoverflow.com/questions/145176/is-html-considered-a-programming-language">HTML isn&rsquo;t a programming language</a>, so why are you bringing all of this up?&rdquo;</p>
-<p>You&rsquo;re correct, it isn&rsquo;t a programming language, but I bring this up because it was a gateway for me to programming.</p>
-<p>The other few students who knew the HTML trick quickly began modifying the HTML source of the new games, but there was one <em>tiny</em> caveat to this trick: the modified portions of the source would reset after a page refresh or if the game updates the HTML element&rsquo;s value.</p>
-<p>By that time, I had begun exploring other parts of the games that could be change as well as the browser&rsquo;s developer&rsquo;s tools. One day, I was exploring <a href="https://play2048.co/">2048</a>&lsquo;s code and I clicked on the &lsquo;source&rsquo; tab and realized that there were certain variables with extremely promising names like &lsquo;tileSpawnValue&rsquo; and such. I changed the value to something absurd like 1024 and hit ctrl+s after being prompted to do so, and upon hitting the next arrow key, a shining yellow square with a value of 1024 suddenly showed up.</p>
-<p>I immediately showed the rest of the class this and they were all witnessing the first instance of cheated-in game values sticking around after a dynamic update like a score change.</p>
-<p>So there it is, what I&rsquo;d consider my <em>first</em> real encounter with programming. I did a little bit of tinkering around with other games and posted videos of the modified versions on our school&rsquo;s unofficial instagram group (yes, we were like 10. I&rsquo;d like to think that we were at least responsible enough to handle social media).</p>
-<p style="color: gray">*Clarification: this was 2013 and the world was in an awkward transition from the era of Java web applets and Flash games to JavaScript and CSS. As a result, games like "The World's Hardest Game" had no JS for me to fiddle around with (there was this Easter Egg that let you speed through the challenges though). Flappy Bird had a JS port that I just worked with.*</p>
-<h3 id="i-tried-to-learn-to-code-using-books--online-resources-but-i-kept-giving-up-too-early">I tried to learn to code using books &amp; online resources, but I kept giving up too early.</h3>
-<p>So I kept doing what I knew how to do: just tinkering with things.</p>
-<p>Recall that HTML changes would just revert back after a page refresh. The same happens with JS modifications (Chrome Overrides didn&rsquo;t exist back then). A quick google showed that you could just save all of the source code locally and run it (and hope the other students don&rsquo;t notice that the url in the search bar hasn&rsquo;t changed from https://whatever&hellip; to file://&hellip;)</p>
-<p>We were in 7th grade by then and our math teachers started us on <a href="https://tenmarks.typepad.com/tenmarks/">Tenmarks</a>, which was like this online math problem bank where you&rsquo;d solve problems to get coins. You&rsquo;d spend the coins to buy 10 minutes of game time playing in their virtual arcade full of lame games.</p>
-<p>Even if the coins were lame, the rest of the class still competed to see who would get the most coins. I employed the save-source trick and impressed a bunch of people, but since this was middle school and there were a ton of new people who weren&rsquo;t familiar with the two year-long &lsquo;arms-race&rsquo; from my elementary school, I decided that it would be funny if I didn&rsquo;t tell them that it was fake&hellip;</p>
-<p>And plus, what kind of middle schooler would pass on a sudden burst of attention? 😉</p>
-<p>If Pinocchio has taught anyone anything, it&rsquo;s probably &ldquo;don&rsquo;t lie&rdquo;. Too bad for Pinocchio, I didn&rsquo;t listen, and so I was constantly asked to prove that I had a ton of tenmarks points. In the midst of a panic, I realized that the training mode in <a href="https://tenmarks.typepad.com/tenmarks/">Tenmarks</a> kept asking predictable questions. One of the questions was, &ldquo;What is the negative of <code>&lt;insert number here&gt;</code>?.&quot;, which was extremely easy to automate.</p>
-<h3 id="so-i-had-an-idea">So I had an idea&hellip;</h3>
-<p>What if I wrote some kind of bot that did these simple questions that gave me coins, enough coins to show everyone that I did in fact have these coins?</p>
-<p>Long story short, <strong>I got to work</strong>.</p>
-<p>I think a major reason why people never begin doing something is because they just don&rsquo;t have that slight push over the ledge that gets the ball rolling. For me, it was my silly experiences in middle and elementary school that led me to pursue programming.</p>
-<p><em>ahem</em> tons of googling later&hellip;</p>
-<p>Anyways, I wrote with this Python script that used the Selenium web automation library which opens up an instance of a browser and clicks buttons, reads elements, and types text according to what you programmed it to do. So I let the thing run for a couple of hours over the week and it got me enough points to convince the other students.</p>
-<p>There&rsquo;s plenty of stories to tell after that, but this tenmarks bot was probably the first one that programmed by myself instead of just modifying bits of code.</p>
+        <p>Is it possible to determine the best fitting curve to a series of data points just by knowing the form of the function?</p>
+<h2 id="the-perceptron">The Perceptron</h2>
+<p>The perceptron, a perceptively simple unit of the neural network, can demonstrate powerful predictive performance when given the right data.</p>
+<p>The most basic task that everyone&rsquo;s heard of is binary classification. Perceptrons a great at solving these problems because if they are presented data with a definite boundary separating the two classes of data, then they can predict where unseen data points may lie.</p>
+<p>There main limitation of this current perceptron model is its ability to only separate data points that are &ldquo;linearly separable&rdquo;. If the number of columns in the data is 2, then the points are separated by a line. Three, then separated by a plane. Four, then a hyperplane&hellip; and so on.</p>
+<p>With a few tweaks, one will be able to get the perceptron to do tasks like non linear regression. But first, let&rsquo;s take a look at the special case of linear regression.</p>
+<h2 id="the-linear-regression-problem">The Linear Regression Problem</h2>
+<p>Every line represented by a function is in the form <code>y = ax + b</code>.
+Given a bunch of linearly separable data (data pints that could be separated by a line), could you find the line drawn by <code>a and b</code>?</p>
+<p>As a normal human being, I would say, &ldquo;Sure, I&rsquo;ll just draw something like this&rdquo;</p>
+<div style="margin-left: auto; margin-right: auto; display: block; width: 50%;">
+  <img src="/img/arbitrary_curve_3.png">
+  <small style="margin-top: 0.4rem; margin-bottom: 0.4rem; margin-left: auto; margin-right: auto; display: block; width: 50%; text-align: center">
+    My hand drawn line
+  </small>
+</div>
+<p>You&rsquo;re able to tell what the line is because of the grouping of the points and the overall trend, but how would a computer be able to tell this though? Let&rsquo;s begin by critiquing the computer.</p>
+<h3 id="the-cost-function">The Cost Function</h3>
+<p style="color:gray">*It's basically the same as the loss function. You will hear them being used interchangeably*</p>
+<p>Let our current model (our best guess) be a function of <code>a and b</code>: <code>f(x) = ax+b</code> and given a set of points in the form of <code>(x, y)</code>, and the i&rsquo;th point is <code>(x_i, y_i)</code>, we can apply the sum of square errors to find the cost <code>C(a, b) = sum((y_i-f(x_i, a, b))**2)</code>.</p>
+<p>We want to be minimizing the error (the cost) by finding the best values of <code>a and b</code>, but we don&rsquo;t know what to do. We could try guessing the parameters&hellip; or even try all of them (grid searching), but that will take too long!</p>
+<p>Using knowledge from multivariable calculus, you could try holding <code>x</code> fixed and then treating <code>C(a, b)</code> as a surface&ndash; then maximize using the second derivative test. This is known as the analytical way of achieving the optimum <code>a and b</code> and it&rsquo;s guaranteed to work all the time.</p>
+<p>The catch is that it doesn&rsquo;t work on a broader class of nonlinear regression problems.</p>
+<h3 id="the-perceptron-approach">The Perceptron Approach</h3>
+<div style="margin-left: auto; margin-right: auto; display: block; width: 50%;">
+  <img src="https://images.deepai.org/glossary-terms/perceptron-6168423.jpg">
+  <small style="margin-top: 0.4rem; margin-bottom: 0.4rem; margin-left: auto; margin-right: auto; display: block; width: 50%; text-align: center">
+    The Perceptron
+  </small>
+</div>
+<p>A perceptron has a number of inputs, a number of weights, and a step function. The inputs and weights are vectors and the activation function function works on scalers. Taking the dot product between the inputs and weights is the net input and the net input is passed through the activation function, which is sometimes just the net input itself (linear activation).</p>
+<p>This works well in modeling our linear regression problem because all of the inputs are multiplied by some parameters that we&rsquo;re trying to optimize. In this case, b can be represented by the bias of a perceptron (a value that always adds to the net input to prevent the perceptron from fitting <em>too</em> closely to the input data). The bias normally serves another purpose but it&rsquo;s a convenience here to represent the constant <code>b</code> as it sits without an input.</p>
+<p>We can then calculate the cost using the cost function described earlier.</p>
+<h3 id="gradient-descent">Gradient Descent</h3>
+<p>The weights of the perceptron are initialized to small but random values at the start of the perceptron&rsquo;s life.
+Sticking with our surface analogy, let&rsquo;s visualize our network&rsquo;s weight &lsquo;surface&rsquo;.</p>
+<div style="margin-left: auto; margin-right: auto; display: block; width: 50%;">
+  <img src="/img/arbitrary_curve_4.png">
+  <small style="margin-top: 0.4rem; margin-bottom: 0.4rem; margin-left: auto; margin-right: auto; display: block; width: 50%; text-align: center">
+    The Weight Surface.
+  </small>
+</div>
+<p>Gradient descent tells us that to minimize our parameters, we need to take the steepest path from our current position. The common analogy is a ball rolling down a rough hill.</p>
+<p>You can find the steepest path by taking the negative of the gradient (partial derivative with respect to each weight) of the cost function. We have to then step by a very small amount to adapt to the roughness of the weight &lsquo;surface&rsquo; by the &ldquo;learning rate&rdquo; hyperparameter.</p>
+<pre><code>import numpy as np
+import matplotlib.pyplot as plt
+
+fuzz = np.random.normal(size=(200), scale=50)
+x = np.linspace(0, 100, 200)
+y = 5*x+10+fuzz
+w = np.random.normal(size=(2), scale=0.1)
+for _ in range(15000):
+    err = sum((y-(w[1]*x+w[0]))**2)/len(x)
+    d_err = sum((y-(w[1]*x+w[0]+0.0001))**2)/len(x), sum((y-((w[1]+0.0001)*x+w[0]))**2)/len(x)
+    gradient = (d_err-err)/0.0001
+    w += -0.0002*gradient
+
+plt.scatter(x, y)
+plt.plot(x, w[1]*x+w[0], color=&quot;lime&quot;)
+plt.show()
+</code></pre><h2 id="polynomial-regression">Polynomial Regression</h2>
+<p>So what if we have a polynomial model that we need to fit to data? The process doesn&rsquo;t change.</p>
+<p>We can start with constructing the hessian matrix (to find the minimum of the surface&ndash; even though it&rsquo;s not a surface when there&rsquo;s more than 2 weights) and then taking its determinant. There&rsquo;s a lot of symmetry involved and lots of things should cancel out giving you the coefficients of the polynomial fit.</p>
+<h2 id="nonlinear-fitting">Nonlinear fitting</h2>
+<p>Borrowing the concepts from above, we could use this property of gradient descent and cost minimization to find the appropriate weights that match a function&rsquo;s description.</p>
+<p>For example, if I had the some scatter plot data and a model function <code>sin(ax+b)</code>, I can choose <code>a</code> and <code>b</code> to be the weights of the perceptron, and be able to find the cost value to be used to tweak the <code>a</code> and <code>b</code> values.</p>
+<p>Here is an example of a very tight fit between the network&rsquo;s weights plotted against scattered data fed into a function with similar weights with random noise added onto it.</p>
+<div style="margin-left: auto; margin-right: auto; display: block; width: 50%;">
+  <img src="/img/arbitrary_curve_1.png">
+  <small style="margin-top: 0.4rem; margin-bottom: 0.4rem; margin-left: auto; margin-right: auto; display: block; width: 50%; text-align: center">
+    The tight fit
+  </small>
+</div>
 <h2 id="conclusion">Conclusion</h2>
-<p>So these silly experiences led me to learn how to program basically.</p>
-<p style="display: inline-block"> It's not easy to learn your first programming language, but some <i>pointers</i> <p style="color: gray; font-size: 10; display: inline-block; ">;)</p> I'd give are: </p>
-<ol>
-<li>Pick any programming language guide that you can loosely follow.
-<ul>
-<li>It&rsquo;s 2021+ now so there&rsquo;s plenty of online guides (you just need this to get familiar with language syntax and language-specific features).</li>
-</ul>
-</li>
-<li>Think of a project to get started on.
-<ul>
-<li>You should always try to work on this whenever you gain new knowledge.</li>
-</ul>
-</li>
-<li>Don&rsquo;t be afraid to google or ask for help
-<ul>
-<li>StackOverflow tends to be pretty aggressive towards new programmers, but thankfully most people have your most common questions answered already.</li>
-</ul>
-</li>
-<li>Always try learning something new.
-<ul>
-<li>This is just general advice. Try learning something everyday!</li>
-<li>Whatever you learn may not be useful, but it gives you insight and gives you new perspectives.</li>
-</ul>
-</li>
-</ol>
+<p>I stopped working on this blog post for a while and picked it back up months later. Lots of details were lost along the way so the post is written incohesively.</p>
+<p>Here is the link to the source</p>
+<script src="https://gist.github.com/classAndrew/bf062e1b392b6fa17d932fda2a942502.js"></script>
       </article>
     </section>
 

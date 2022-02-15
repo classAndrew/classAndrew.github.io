@@ -6,10 +6,19 @@
     <description>Recent content in Programming on Andrew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Nov 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://andw.me/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Switching to Hugo</title>
+      <link>https://andw.me/posts/hugo_switch/</link>
+      <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://andw.me/posts/hugo_switch/</guid>
+      <description>&lt;p&gt;Jekyll, self hosting a hacked together templating server, or Hugo&amp;hellip; the possibilities are endless.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>The Quest for the Atomic G Orbital</title>
