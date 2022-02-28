@@ -6,10 +6,19 @@
     <description>Recent content in Archive on Andrew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 26 Feb 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://andw.me/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>UCM AMPOM February 2022</title>
+      <link>https://andw.me/posts/ampom_feb_2022/</link>
+      <pubDate>Sat, 26 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://andw.me/posts/ampom_feb_2022/</guid>
+      <description>&lt;p&gt;Attempting to solve challenge for Feb 2022.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Arbitrary Curve Fitting</title>
