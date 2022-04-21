@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Andrew&#39;s Blog</title>
-    <link>https://andw.me/tags/</link>
+    <link>https://andw.xyz/tags/</link>
     <description>Recent content in Tags on Andrew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 31 Mar 2022 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://andw.me/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://andw.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Programming</title>
-      <link>https://andw.me/tags/programming/</link>
+      <link>https://andw.xyz/tags/programming/</link>
       <pubDate>Thu, 31 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://andw.me/tags/programming/</guid>
+      <guid>https://andw.xyz/tags/programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Machine Learning</title>
-      <link>https://andw.me/tags/machine-learning/</link>
+      <link>https://andw.xyz/tags/machine-learning/</link>
       <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://andw.me/tags/machine-learning/</guid>
+      <guid>https://andw.xyz/tags/machine-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Math</title>
-      <link>https://andw.me/tags/math/</link>
+      <link>https://andw.xyz/tags/math/</link>
       <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://andw.me/tags/math/</guid>
+      <guid>https://andw.xyz/tags/math/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Chemistry</title>
-      <link>https://andw.me/tags/chemistry/</link>
+      <link>https://andw.xyz/tags/chemistry/</link>
       <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://andw.me/tags/chemistry/</guid>
+      <guid>https://andw.xyz/tags/chemistry/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Story</title>
-      <link>https://andw.me/tags/story/</link>
+      <link>https://andw.xyz/tags/story/</link>
       <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://andw.me/tags/story/</guid>
+      <guid>https://andw.xyz/tags/story/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data</title>
-      <link>https://andw.me/tags/data/</link>
+      <link>https://andw.xyz/tags/data/</link>
       <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://andw.me/tags/data/</guid>
+      <guid>https://andw.xyz/tags/data/</guid>
       <description></description>
     </item>
     

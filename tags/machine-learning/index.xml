@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine Learning on Andrew&#39;s Blog</title>
-    <link>https://andw.me/tags/machine-learning/</link>
+    <link>https://andw.xyz/tags/machine-learning/</link>
     <description>Recent content in Machine Learning on Andrew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 20 Nov 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://andw.me/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://andw.xyz/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Arbitrary Curve Fitting</title>
-      <link>https://andw.me/posts/arbitary_curve/</link>
+      <link>https://andw.xyz/posts/arbitary_curve/</link>
       <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://andw.me/posts/arbitary_curve/</guid>
+      <guid>https://andw.xyz/posts/arbitary_curve/</guid>
       <description>&lt;p&gt;Is it possible to determine the best fitting curve to a series of data points just by knowing the form of the function?&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>SATs and GPAs matter! ...But by how much?</title>
-      <link>https://andw.me/posts/sat_gpa/</link>
+      <link>https://andw.xyz/posts/sat_gpa/</link>
       <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://andw.me/posts/sat_gpa/</guid>
+      <guid>https://andw.xyz/posts/sat_gpa/</guid>
       <description>&lt;p&gt;Looking at the correlation between SATs, GPAs, and college admissions.&lt;/p&gt;</description>
     </item>
     

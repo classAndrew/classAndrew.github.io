@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data on Andrew&#39;s Blog</title>
-    <link>https://andw.me/tags/data/</link>
+    <link>https://andw.xyz/tags/data/</link>
     <description>Recent content in Data on Andrew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 06 Aug 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://andw.me/tags/data/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://andw.xyz/tags/data/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SATs and GPAs matter! ...But by how much?</title>
-      <link>https://andw.me/posts/sat_gpa/</link>
+      <link>https://andw.xyz/posts/sat_gpa/</link>
       <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://andw.me/posts/sat_gpa/</guid>
+      <guid>https://andw.xyz/posts/sat_gpa/</guid>
       <description>&lt;p&gt;Looking at the correlation between SATs, GPAs, and college admissions.&lt;/p&gt;</description>
     </item>
     
