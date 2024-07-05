@@ -1,69 +1,82 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Andrew&#39;s Blog</title>
-    <link>https://andw.xyz/tags/</link>
-    <description>Recent content in Tags on Andrew&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Tags on andw.xyz</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on andw.xyz</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 31 Mar 2022 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://andw.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Programming</title>
-      <link>https://andw.xyz/tags/programming/</link>
-      <pubDate>Thu, 31 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://andw.xyz/tags/programming/</guid>
+      <title>Constraint Solver</title>
+      <link>http://localhost:1313/tags/constraint-solver/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/constraint-solver/</guid>
       <description></description>
     </item>
-    
+    <item>
+      <title>CUDA</title>
+      <link>http://localhost:1313/tags/cuda/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/cuda/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GPU</title>
+      <link>http://localhost:1313/tags/gpu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/gpu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Monte Carlo</title>
+      <link>http://localhost:1313/tags/monte-carlo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/monte-carlo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pi</title>
+      <link>http://localhost:1313/tags/pi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/pi/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Machine Learning</title>
-      <link>https://andw.xyz/tags/machine-learning/</link>
-      <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://andw.xyz/tags/machine-learning/</guid>
+      <link>http://localhost:1313/tags/machine-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/machine-learning/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Math</title>
-      <link>https://andw.xyz/tags/math/</link>
-      <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://andw.xyz/tags/math/</guid>
+      <title>Perceptron</title>
+      <link>http://localhost:1313/tags/perceptron/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/perceptron/</guid>
       <description></description>
     </item>
-    
+    <item>
+      <title>Polynomials</title>
+      <link>http://localhost:1313/tags/polynomials/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/polynomials/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Statistics</title>
+      <link>http://localhost:1313/tags/statistics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/statistics/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Chemistry</title>
-      <link>https://andw.xyz/tags/chemistry/</link>
-      <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://andw.xyz/tags/chemistry/</guid>
+      <link>http://localhost:1313/tags/chemistry/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/chemistry/</guid>
       <description></description>
     </item>
-    
-    <item>
-      <title>Story</title>
-      <link>https://andw.xyz/tags/story/</link>
-      <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://andw.xyz/tags/story/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data</title>
-      <link>https://andw.xyz/tags/data/</link>
-      <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://andw.xyz/tags/data/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>

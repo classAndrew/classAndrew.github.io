@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Engineering on andw.xyz</title>
+    <link>http://localhost:1313/tags/data-engineering/</link>
+    <description>Recent content in Data Engineering on andw.xyz</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/data-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Do SATs and GPAs matter?</title>
+      <link>http://localhost:1313/posts/sat_gpa/</link>
+      <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/sat_gpa/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;The original article was written in 2021. This is a 2024 summary / rewrite.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;--update-from-me-in-2024-&#34;&gt;⚠️ !!! Update from Me in 2024 !!!&lt;/h3&gt;&#xA;&lt;p&gt;All of the data was gathered from Niche.com, which presents a data bias and data scarcity issue. The data is biased in the sense that &amp;ldquo;only people who have scored very well on the SATs will bother reporting their scores&amp;rdquo;. Otherwise I expect to see a mean score equal to whatever CollegeBoard says since all raw scores are scaled.&lt;/p&gt;&#xA;&lt;p&gt;Take any conclusions in this super outdated article with a grain of salt.&lt;/p&gt;&#xA;&lt;h3 id=&#34;looking-at-the-correlation-between-sats-gpas-and-college-admissions&#34;&gt;Looking at the correlation between SATs, GPAs, and college admissions.&lt;/h3&gt;</description>
+    </item>
+  </channel>
+</rss>

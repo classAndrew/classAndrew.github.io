@@ -1,33 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Machine Learning on Andrew&#39;s Blog</title>
-    <link>https://andw.xyz/tags/machine-learning/</link>
-    <description>Recent content in Machine Learning on Andrew&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Machine Learning on andw.xyz</title>
+    <link>http://localhost:1313/tags/machine-learning/</link>
+    <description>Recent content in Machine Learning on andw.xyz</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 20 Nov 2021 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://andw.xyz/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="http://localhost:1313/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arbitrary Curve Fitting</title>
-      <link>https://andw.xyz/posts/arbitary_curve/</link>
+      <link>http://localhost:1313/posts/arbitrary_curve/</link>
       <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://andw.xyz/posts/arbitary_curve/</guid>
-      <description>&lt;p&gt;Is it possible to determine the best fitting curve to a series of data points just by knowing the form of the function?&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/arbitrary_curve/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Yet another disclaimer from 2024, 3 years later.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;I have been going around cleaning up my old blog and rewriting articles that were incomplete. This article is no exception.&lt;/p&gt;&#xA;&lt;p&gt;In the article, I previously claimed that the perceptron has some magical ability to learn any function to allow for an arbitrary curve fit on any data. This turns out to be completely wrong. While deep networks get exceedingly good at regression tasks and are indeed capable of arbitrary curve fitting (there&amp;rsquo;s &lt;a href=&#34;https://en.wikipedia.org/wiki/Universal_approximation_theorem&#34;&gt;this theorem&lt;/a&gt; that tells us that an infinitely deep network can fit any function). I knew at the time that single-unit perceptrons optimized by gradient descent were equivalent to linear regression but for some reason claimed that they could fit any function.&lt;/p&gt;&#xA;&lt;p&gt;There&amp;rsquo;s a lot of misunderstanding and confusion when I wrote this 3 years ago, and tbh I kind of get it.&lt;/p&gt;&#xA;&lt;p&gt;For example, I claimed that modifying a perceptron to find the coefficients of a polynomial magically gives it the ability to fit any function. What I was really doing was rediscovering feature mapping. It&amp;rsquo;s the same process as &amp;ldquo;&lt;a href=&#34;https://bmild.github.io/fourfeat/&#34;&gt;fourier features&lt;/a&gt;&amp;rdquo; that are used so often in generative networks for injecting high frequency details in the output image. Instead of doing \( \sin(x), \sin(2x), &amp;hellip; \cos(x), \cos(2x) \), &amp;hellip; I was doing \( x, x^2, x^3, &amp;hellip; \)&lt;/p&gt;&#xA;&lt;p&gt;and the perceptron would find the coefficients to a lease-squares polynomial fit.&lt;/p&gt;&#xA;&lt;p&gt;It turns out that doing this on nonlinear, and non-polynomial functions like \( \sin(x) + \cos(2x) \) will still give good fits by the modified perceptron because &lt;strong&gt;it was just finding the first few terms of the taylor polynomial&lt;/strong&gt;. So no big news there. It tends to do a poor job if the curve gets too complicated or if the data is too noisy because gradient descent cannot find a local minima. It was just a very roundabout way to do taylor approximation and I didn&amp;rsquo;t realize it at the time.&lt;/p&gt;&#xA;&lt;p&gt;Anyways, here&amp;rsquo;s the original stuff:&lt;/p&gt;&#xA;&lt;p&gt;Is it possible to determine the best fitting curve to a series of data points just by knowing the form of the function?&lt;/p&gt;</description>
     </item>
-    
-    <item>
-      <title>SATs and GPAs matter! ...But by how much?</title>
-      <link>https://andw.xyz/posts/sat_gpa/</link>
-      <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://andw.xyz/posts/sat_gpa/</guid>
-      <description>&lt;p&gt;Looking at the correlation between SATs, GPAs, and college admissions.&lt;/p&gt;</description>
-    </item>
-    
   </channel>
 </rss>

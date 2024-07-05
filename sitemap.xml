@@ -1,95 +1,169 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://andw.xyz/</loc>
-    <lastmod>2022-03-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://andw.xyz/posts/</loc>
-    <lastmod>2022-03-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://andw.xyz/categories/</loc>
-    <lastmod>2022-03-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://andw.xyz/categories/eng/</loc>
-    <lastmod>2022-03-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://andw.xyz/tags/programming/</loc>
-    <lastmod>2022-03-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://andw.xyz/tags/</loc>
-    <lastmod>2022-03-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://andw.xyz/posts/ampom_mar_2022/</loc>
-    <lastmod>2022-03-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://andw.xyz/posts/ampom_feb_2022/</loc>
-    <lastmod>2022-02-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://andw.xyz/posts/arbitary_curve/</loc>
-    <lastmod>2022-02-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://andw.xyz/tags/machine-learning/</loc>
-    <lastmod>2022-02-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://andw.xyz/tags/math/</loc>
-    <lastmod>2022-02-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://andw.xyz/posts/hugo_switch/</loc>
-    <lastmod>2021-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://andw.xyz/tags/chemistry/</loc>
-    <lastmod>2021-09-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://andw.xyz/tags/story/</loc>
-    <lastmod>2021-09-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://andw.xyz/posts/g_orbital/</loc>
-    <lastmod>2021-09-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://andw.xyz/tags/data/</loc>
-    <lastmod>2021-08-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://andw.xyz/posts/sat_gpa/</loc>
-    <lastmod>2021-08-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://andw.xyz/posts/first_code/</loc>
-    <lastmod>2021-07-27T00:00:00+00:00</lastmod>
-  </url>
-  
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    
+    <url>
+        <loc>http://localhost:1313/</loc>
+        <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/post/</loc>
+        <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/posts/ampom_mar_2022/</loc>
+        <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/categories/</loc>
+        <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/tags/constraint-solver/</loc>
+        <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/categories/math/</loc>
+        <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/tags/</loc>
+        <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/posts/ampom_feb_2022/</loc>
+        <lastmod>2022-02-26T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/tags/cuda/</loc>
+        <lastmod>2022-02-26T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/tags/gpu/</loc>
+        <lastmod>2022-02-26T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/categories/gpu/</loc>
+        <lastmod>2022-02-26T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/tags/monte-carlo/</loc>
+        <lastmod>2022-02-26T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/tags/pi/</loc>
+        <lastmod>2022-02-26T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/posts/arbitrary_curve/</loc>
+        <lastmod>2021-11-20T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/tags/machine-learning/</loc>
+        <lastmod>2021-11-20T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/categories/machine-learning/</loc>
+        <lastmod>2021-11-20T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/tags/perceptron/</loc>
+        <lastmod>2021-11-20T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/tags/polynomials/</loc>
+        <lastmod>2021-11-20T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/tags/statistics/</loc>
+        <lastmod>2021-11-20T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/categories/statistics/</loc>
+        <lastmod>2021-11-20T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/tags/chemistry/</loc>
+        <lastmod>2021-09-16T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/categories/chemistry/</loc>
+        <lastmod>2021-09-16T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/tags/glsl/</loc>
+        <lastmod>2021-09-16T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/categories/graphics/</loc>
+        <lastmod>2021-09-16T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/posts/g_orbital/</loc>
+        <lastmod>2021-09-16T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/tags/code/</loc>
+        <lastmod>2021-08-06T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/tags/data/</loc>
+        <lastmod>2021-08-06T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/tags/data-engineering/</loc>
+        <lastmod>2021-08-06T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/categories/data-science/</loc>
+        <lastmod>2021-08-06T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/posts/sat_gpa/</loc>
+        <lastmod>2021-08-06T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/tags/python/</loc>
+        <lastmod>2021-08-06T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/tags/scikit/</loc>
+        <lastmod>2021-08-06T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://localhost:1313/about/</loc>
+    </url>
+    
 </urlset>

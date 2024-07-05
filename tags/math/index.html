@@ -1,585 +1,164 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Math | Andrew&#39;s Blog</title>
-
-    
-<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1"><title>Math - andw.xyz</title>
+<meta property="og:title" content="Math - andw.xyz">
+<meta property="og:type" content="website">
 
 
+<meta property="og:image" content="img/main.jpg">
 
+<meta property="og:url" content="http://localhost:1313/tags/math/">
 
-<meta name="author" content="Andrew" />
-<meta name="description" content="You&#39;ll find me rambling on about things here.
-  It&#39;s a pretty cool place if you like tech or computers.
-  
-  *waves at twitter and discord users*" />
+<meta property="og:description" content="All articles tagged with  Math">
+<meta name="Description" property="description" content="All articles tagged with  Math">
 
 
 
-<meta name="generator" content="Hugo 0.68.3" />
-
-<link rel="canonical" href="https://andw.xyz/tags/math/" />
-
-
-<meta property="og:title" content="Math" />
-<meta property="og:description" content="You&#39;ll find me rambling on about things here.
-  It&#39;s a pretty cool place if you like tech or computers.
-  
-  *waves at twitter and discord users*" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://andw.xyz/tags/math/" />
-<meta property="og:image" content="https://andw.xyz/me/background.jpg"/>
-<meta property="og:updated_time" content="2021-11-20T00:00:00+00:00" />
 
 
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://andw.xyz/me/background.jpg"/>
+<link rel="stylesheet" href="http://localhost:1313/css/style.min.css">
 
-<meta name="twitter:title" content="Math"/>
-<meta name="twitter:description" content="You&#39;ll find me rambling on about things here.
-  It&#39;s a pretty cool place if you like tech or computers.
-  
-  *waves at twitter and discord users*"/>
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-<link rel="stylesheet" href="/css/icomoon.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/css/OverlayScrollbars.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
-<link rel="stylesheet" href="/css/site.css" />
-
-<style>
-  .ui.header a:not(.item, .ui.button):hover {
-    text-decoration: underline;
-  }
-
-  
-  a:not(.item, .ui.button) {
-    color: seagreen !important;
-  }
-  
-
-  
-  .inverted a:not(.item, .ui.button) {
-     color: darkseagreen !important;
-  }
-  
-
-  
-  body.default {
-    
-    background-color: #fff;
-    
-
-    
-    background-image: url(/me/background.jpg);
-    
-  }
-  
-
-  
-  body.dark {
-    
-    background-color: #333;
-    
-
-    
-    background-image: url(/me/background.jpg);
-    
-  }
-  
-</style>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link href="http://localhost:1313/index.xml" type="application/atom+xml" rel="alternate" title="Sitewide Atom feed" />
+<meta name="theme-color" content="#ffffff">
 
 
-     
+<script>function updateMode(){localStorage.theme==="dark"||!("theme"in localStorage)&&window.matchMedia("(prefers-color-scheme: dark)").matches?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark")}function toggleMode(){localStorage.theme==="dark"?localStorage.theme="light":localStorage.theme="dark",updateMode()}window.onload=updateMode();function toggleMenu(){let e=document.getElementById("navbar-default");e.classList.contains("hidden")?e.classList.remove("hidden"):e.classList.add("hidden")}</script>
 
-    
-    <link rel="stylesheet" href="/css/custom.css" />
-    
   </head>
-
-  <body class="default">
-    
-<nav class="ui secondary menu dream-menu dream-nav">
-
-  <a class="item dream-flip-toggle" title="Flip it!">
-    <i class="large link bullseye icon"></i>
-  </a>
-  <a class="item" href="https://andw.xyz" title="Home">
-    <i class="large link home icon"></i>
-  </a>
-  
-  <a class="item" onclick="themeSwitch(event)">
-    <i class="large link icon theme-switch"></i>
-  </a>
-  
-  
-  <a class="item" title="Search" onclick="toggleSearch(event)">
-    <i class="large link search icon"></i>
-  </a>
-  
+  <body>
+    <header class="md:px-0 px-2">
+        <nav >
+  <div class="container flex flex-wrap justify-between items-center mx-auto">
+    <div class="nav-main my-2.5">
+      <a href="http://localhost:1313/" class="nav-title py-2.5 text-2xl
+               text-zinc-600 dark:text-zinc-300 hover:border-b-0">andw.xyz</a>
+    </div>
+    <button type="button"
+            onclick="toggleMenu()"
+            class="inline-flex items-center p-2 ml-3
+                  text-sm text-gray-500
+                  rounded-lg md:hidden hover:bg-gray-100
+                  focus:outline-none focus:ring-2
+                  focus:ring-gray-200 dark:text-gray-400
+                  dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-default"
+            aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor"
+             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1
+                           0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0
+                           01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0
+                           01-1-1z" clip-rule="evenodd"></path>
+        </svg>
+    </button>
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul class="grid md:grid-flow-col items-center justify-between text-lg
+                 my-2.5 grid-cols-1 pl-0 text-center">
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/post/">Posts</a>
+        </li>
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/categories/">Categories</a>
+        </li>
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/tags/">Tags</a>
+        </li>
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/about/">About</a>
+        </li>
+        
+        <li class="h-7 pl-2.5 pr-0 list-none">
+          <button type="button" onclick="toggleMode()" class="h-full"  aria-label="Toggle between dark and light mode">
+            <img class="h-7 w-7 max-h-full mb-1.5 p-1.5 hidden dark:inline"
+                 id="ligh-mode-button-img"
+                 alt="A sun icon for switching to light mode"
+                 src="http://localhost:1313/img/light_mode.svg">
+            <img class="h-7 w-7 max-h-full mb-1.5 p-1.5 inline dark:hidden"
+                 id="dark-mode-button-img"
+                 alt="A moon icon for switching to dark mode"
+                 src="http://localhost:1313/img/dark_mode.svg">
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-    <div class="flip-container">
-      <div class="flipper">
-        <section class="front">
-          <div class="dream-max-width">
-            
 
-<header class="ui basic very padded segment dream-header">
-  
-  <div class="ui small circular image">
-    <img src="/me/bunny.gif" alt="avatar" />
-  </div>
-  
-
-  <div class="content">
-    <h1 class="ui medium header">Andrew&#39;s Blog<span class="sub header">I'll do it slowly-- just 2048 at a time.</span>
-    </h1>
-
-    <article class="ui horizontal list">
+    </header>
+    <main class="content h-card container mt-2 m-auto
+                 leading-loose md:px-0 px-2 z-0"
+          role="main">
+    
+  <br>
+  <a href="/tags/"><b>&#8592; Browse all tags</b></a>
+  <div class="list">
+      <h1 class="list-title">Math</h1>
       
-      <a class="item" href="/posts">
-        <i class="archive icon" title="Archives"></i>
-      </a>
-      
-      <a class="item" href="/categories">
-        <i class="th list icon" title="All Categories"></i>
-      </a>
-      <a class="item" href="/tags">
-        <i class="tags icon" title="All Tags"></i>
-      </a>
-    </article>
-
-    
-    
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-    
-
-    
-
-    
-    
-    
-          <div class="dream-tags">
-          
-          
-          
-            <a class="ui label" href="/tags/chemistry/" title="Chemistry">
-              Chemistry
-            </a>
-          
-          
-          
-            <a class="ui label" href="/tags/data/" title="Data">
-              Data
-            </a>
-          
-          
-          
-            <a class="ui label" href="/tags/machine-learning/" title="Machine Learning">
-              Machine Learning
-            </a>
-          
-          
-          
-            <a class="ui label" href="/tags/math/" title="Math">
-              Math
-            </a>
-          
-          
-          
-            <a class="ui label" href="/tags/programming/" title="Programming">
-              Programming
-            </a>
-          
-          
-          
-            <a class="ui label" href="/tags/story/" title="Story">
-              Story
-            </a>
-          
-          </div>
-    
-
-    
-  </div>
-</header>
-
-
-<div class="ui relaxed grid dream-grid">
-  
-  
-  <div class="sixteen wide mobile eight wide tablet eight wide computer four wide large screen four wide widescreen column dream-column">
-    <article class="ui attached segment card dream-card">
-  <a class="image" href="https://andw.xyz/posts/arbitary_curve/">
-    
-    <img src="/img/arbitrary_curve_2.png" alt="Arbitrary Curve Fitting" />
-    
-  </a>
-
-  <div class="content">
-    <h2 class="ui medium header">
-      <a href="/posts/arbitary_curve/">Arbitrary Curve Fitting</a>
-    </h2>
-    <div class="meta">
-      <p class="date">
+        <h2>Post</h2>
         
-          <span data-format="luxon">2021-11-20T00:00:00Z</span>
+          <div class="mb-12 lg:mx-8">
+    <a href="http://localhost:1313/arbitrary-curve-fitting/" itemprop="url"
+       class="grid grid-cols-list-item items-center pb-2 border-b-2
+             text-black dark:text-zinc-300 hover:text-neutral-500
+             dark:border-zinc-600
+             hover:dark:border-zinc-300
+             hover:dark:text-zinc-100">
         
-      </p>
-    </div>
-    <div class="description">
-      <p>Is it possible to determine the best fitting curve to a series of data points just by knowing the form of the function?</p>
-    </div>
-  </div>
-
-  <div class="extra content">
-    <div class="author"><img class="ui avatar image" src="/me/bunny.png" alt="avatar" />Andrew</div>
-    <div class="reading-time">
-      <i class="clock icon"></i>5 minutes read</div>
-  </div>
-</article>
-
-  </div>
-  
-
-  
+            <h3 itemprop="name" class="border-none pb-0 my-6 col-span-2">Arbitrary Curve Fitting</h3>
+        
+        
+            <div class="list-item-date col-start-4 text-right text-neutral-600 dark:text-neutral-400" itemprop="datePublished"
+                content="2021-11-20T00:00:00Z">
+                2021.11.20
+            </div>
+        
+    </a>
+    
+    <meta itemprop="author" content="Andrew Lin">
 </div>
 
-
-            <footer class="ui basic center aligned segment" style="background-color: transparent;">
-              
-              <p>© 2021 - 2022 Andrew&#39;s Blog</p>
-              
-
-              <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
-
-              
-            </footer>
-          </div>
-        </section>
-        <section class="back">
-          <div class="dream-max-width">
-            <header class="ui basic very padded segment dream-header">
-  
-  <div class="ui small circular image">
-    <img src="/me/bunny.gif" alt="avatar" />
-  </div>
-  
-
-  <div class="content">
-    <h1 class="ui medium header">Andrew&#39;s Blog<span class="sub header">I'll do it slowly-- just 2048 at a time.</span>
-    </h1>
-
-    <article class="ui horizontal list">
+        
+        <hr>
       
-      <a class="item" href="/posts">
-        <i class="archive icon" title="Archives"></i>
-      </a>
-      
-      <a class="item" href="/categories">
-        <i class="th list icon" title="All Categories"></i>
-      </a>
-      <a class="item" href="/tags">
-        <i class="tags icon" title="All Tags"></i>
-      </a>
-    </article>
-
-    
-    
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-    
-
-    
-
-    
-    
-    
-          <div class="dream-tags">
-          
-          
-          
-            <a class="ui label" href="/tags/chemistry/" title="Chemistry">
-              Chemistry
-            </a>
-          
-          
-          
-            <a class="ui label" href="/tags/data/" title="Data">
-              Data
-            </a>
-          
-          
-          
-            <a class="ui label" href="/tags/machine-learning/" title="Machine Learning">
-              Machine Learning
-            </a>
-          
-          
-          
-            <a class="ui label" href="/tags/math/" title="Math">
-              Math
-            </a>
-          
-          
-          
-            <a class="ui label" href="/tags/programming/" title="Programming">
-              Programming
-            </a>
-          
-          
-          
-            <a class="ui label" href="/tags/story/" title="Story">
-              Story
-            </a>
-          
-          </div>
-    
-
-    
-  </div>
-</header>
-
-
-<div class="ui relaxed grid dream-grid dream-back">
-  
-  
-  
-  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
-    <article class="ui segment markdown-body">
-      <div class="ui medium header">Projects</div>
-      <ul>
-<li><a href="https://github.com/classAndrew/cubicoid">Cubicoid</a></li>
-<li><a href="https://github.com/classAndrew/SoftSim">SoftSim</a></li>
-<li><a href="https://github.com/classAndrew/cascii">cascii</a></li>
-<li><a href="https://www.curseforge.com/minecraft/bukkit-plugins/last-life">LastLife</a></li>
-<li><a href="https://github.com/classAndrew/ccalc">ccalc</a></li>
-</ul>
-
-    </article>
-  </div>
-  
-  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
-    <article class="ui segment markdown-body">
-      <div class="ui medium header">About Me</div>
-      <p>Andrew&rsquo;s blog</p>
-<p>Fine me rambling on about things here.</p>
-<p>First year uni student and Software Engineer with a focus on Parallel programming</p>
-<p>Skills:</p>
-<ul>
-<li>Python</li>
-<li>C++</li>
-<li>C</li>
-<li>Java</li>
-<li>Go</li>
-<li>Javascript / Typescript</li>
-<li>Lua</li>
-</ul>
-<p>Technology:</p>
-<ul>
-<li>OpenGL</li>
-<li>CUDA, OpenCL</li>
-<li>Git control</li>
-<li>Microsoft Azure</li>
-<li>Google Cloud Platform</li>
-<li>Docker</li>
-</ul>
-<p>&ndash; November 20th, 2021</p>
-
-    </article>
-  </div>
-  
-  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
-    <article class="ui segment markdown-body">
-      <div class="ui medium header">Acknowledgements</div>
-      <p>Thanks to everyone below</p>
-<blockquote>
-<p>g1eny0ung</p>
-</blockquote>
-<p>for this amazing Hugo theme</p>
-
-    </article>
-  </div>
-  
-
-  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
-    <article class="ui segment">
-      <div class="ui medium header">Social Links</div>
-      <nav class="ui secondary menu dream-menu dream-socials">
-  
-  <a class="item" href="/index.xml">
-    <i class="large rss square icon" title="RSS"></i>
-  </a>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  <a class="item" href="https://github.com/classAndrew" target="_blank">
-    <i class="large github icon" title="GitHub"></i>
-  </a>
-  
-
-  
-
-  
-
-  
-  
-  
-  
-</nav>
-
-    </article>
   </div>
 
-  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    </main>
+    <footer class="footer container h-10 text-center mt-1">
+<hr class="my-4">
+  <ul class="pl-0 mt-1">
     
-  </div>
-
-  
-</div>
-
-          </div>
-        </section>
-      </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-
-    
-    <div class="ui segment" id="dream-search">
-  <div class="ui search">
-    <div class="ui transparent input">
-      <input class="prompt" type="text" placeholder="Search" />
-    </div>
-    <div class="results"></div>
-  </div>
-</div>
-<script>
-  $(document).ready(function () {
-    $.getJSON('https:\/\/andw.xyz/index.json', function (data) {
-      $('.ui.search').search({
-        source: data,
-        searchFields: ['title'],
-        showNoResults: false,
-      })
-    })
-  })
-</script>
-<script src="/js/search.js"></script>
-
-    
-
-    
-
-    <script>
-  window.background = "#fff"
-  window.defaultDark =  true 
-  window.backgroundDark = "#333"
-  window.backgroundImageDark = "/me/background.jpg"
-  window.darkNav =  null 
-  window.maxTags =  null 
-  window.hasTwitterEmbed =  null 
-  window.fixedNav =  true 
-
-  if (window.hasTwitterEmbed) {
-    
-    window.twttr = (function (d, s, id) {
-      var js,
-        fjs = d.getElementsByTagName(s)[0],
-        t = window.twttr || {}
-      if (d.getElementById(id)) return t
-      js = d.createElement(s)
-      js.id = id
-      js.src = 'https://platform.twitter.com/widgets.js'
-      fjs.parentNode.insertBefore(js, fjs)
-
-      t._e = []
-      t.ready = function (f) {
-        t._e.push(f)
-      }
-
-      return t
-    })(document, 'script', 'twitter-wjs')
-  }
-</script>
-<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/js/jquery.overlayScrollbars.min.js"></script>
-<script src="/js/header.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/theme.js"></script>
-
-    
-
-
-<script src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"></script>
-
-<script>
-  format()
-
-  function format() {
-    $('span[data-format="luxon"]').each(function () {
-      var date = $(this).text()
-
-      $(this).text(luxon.DateTime.fromISO(date, { locale: "en" }).toFormat("yyyy-MM-dd"))
-    })
-  }
-</script>
+    <li class="ml-2 first:before:content-none before:content-['•']
+               inline-block list-none">
+      <a class="ml-2 text-neutral-800
+                dark:text-neutral-400 border-none"
+          href="https://github.com/hugcis/hugo-astatine-theme">Code</a>
+    </li>
+    <li class="ml-2 first:before:content-none before:content-['•']
+                text-neutral-800 dark:text-neutral-400 inline-block list-none">
+      <span class="ml-2">© Andrew Lin 2024</span>
+    </li>
+  </ul>
+</footer>
 
 
 
-<script src="/js/imagesloaded.pkgd.min.js"></script>
-<script src="/js/masonry.pkgd.min.js"></script>
-<script src="/js/grid.js"></script>
-
-
-    
-
-    
   </body>
 </html>

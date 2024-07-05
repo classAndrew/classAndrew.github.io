@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1"><title>Arbitrary Curve Fitting - andw.xyz</title>
+<meta property="og:title" content="Arbitrary Curve Fitting - andw.xyz">
+<meta property="og:type" content="article">
+
+
+<meta property="og:image" content="img/main.jpg">
+
+<meta property="og:url" content="http://localhost:1313/arbitrary-curve-fitting/"><meta property="og:description" content="Andrew&#39;s personal website. Discussions about microarchitecture, high-performance computing, and data science.">
+<meta name="Description" property="description" content="Andrew&#39;s personal website. Discussions about microarchitecture, high-performance computing, and data science.">
+
+
+<meta property="keywords" content ="math, machine learning">
+
+
+
+<link rel="stylesheet" href="http://localhost:1313/css/style.min.css">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link href="http://localhost:1313/index.xml" type="application/atom+xml" rel="alternate" title="Sitewide Atom feed" />
+<meta name="theme-color" content="#ffffff">
+
+
+<script>function updateMode(){localStorage.theme==="dark"||!("theme"in localStorage)&&window.matchMedia("(prefers-color-scheme: dark)").matches?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark")}function toggleMode(){localStorage.theme==="dark"?localStorage.theme="light":localStorage.theme="dark",updateMode()}window.onload=updateMode();function toggleMenu(){let e=document.getElementById("navbar-default");e.classList.contains("hidden")?e.classList.remove("hidden"):e.classList.add("hidden")}</script>
+
+  </head>
+  <body>
+    <header class="md:px-0 px-2">
+        <nav >
+  <div class="container flex flex-wrap justify-between items-center mx-auto">
+    <div class="nav-main my-2.5">
+      <a href="http://localhost:1313/" class="nav-title py-2.5 text-2xl
+               text-zinc-600 dark:text-zinc-300 hover:border-b-0">andw.xyz</a>
+    </div>
+    <button type="button"
+            onclick="toggleMenu()"
+            class="inline-flex items-center p-2 ml-3
+                  text-sm text-gray-500
+                  rounded-lg md:hidden hover:bg-gray-100
+                  focus:outline-none focus:ring-2
+                  focus:ring-gray-200 dark:text-gray-400
+                  dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-default"
+            aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor"
+             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1
+                           0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0
+                           01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0
+                           01-1-1z" clip-rule="evenodd"></path>
+        </svg>
+    </button>
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul class="grid md:grid-flow-col items-center justify-between text-lg
+                 my-2.5 grid-cols-1 pl-0 text-center">
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/post/">Posts</a>
+        </li>
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/categories/">Categories</a>
+        </li>
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/tags/">Tags</a>
+        </li>
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/about/">About</a>
+        </li>
+        
+        <li class="h-7 pl-2.5 pr-0 list-none">
+          <button type="button" onclick="toggleMode()" class="h-full"  aria-label="Toggle between dark and light mode">
+            <img class="h-7 w-7 max-h-full mb-1.5 p-1.5 hidden dark:inline"
+                 id="ligh-mode-button-img"
+                 alt="A sun icon for switching to light mode"
+                 src="http://localhost:1313/img/light_mode.svg">
+            <img class="h-7 w-7 max-h-full mb-1.5 p-1.5 inline dark:hidden"
+                 id="dark-mode-button-img"
+                 alt="A moon icon for switching to dark mode"
+                 src="http://localhost:1313/img/dark_mode.svg">
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    </header>
+    <main class="content h-card container mt-2 m-auto
+                 leading-loose md:px-0 px-2 z-0"
+          role="main">
+    
+<article class="article h-entry" itemprop="mainEntity" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="title-container">
+        <h1 class="article-title p-name" itemprop="name">Arbitrary Curve Fitting</h1>
+        
+        <div class="flex justify-between items-center">
+            
+            <a class="text-lg text-gray-600 dark:text-gray-400 border-none u-url" href="http://localhost:1313/arbitrary-curve-fitting/">
+                <time itemprop="datePublished" class="dt-published"
+                    datetime="2021-11-20T00:00:00Z"
+                    content="2021-11-20T00:00:00Z">
+                    2021.11.20
+                </time>
+            </a>
+            
+            
+                
+                <a class="text-gray-600 dark:text-gray-400 text-right border-none p-author h-card" rel="author" href="http://localhost:1313/" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Andrew</span></a>
+                
+            
+        </div>
+        
+    </div>
+
+    <div class="article-content e-content" itemprop="articleBody">
+        <p>+++
+date = 2021-11-20T00:00:00+00:00
+title = &ldquo;Arbitrary Curve Fitting&rdquo;
+slug = &ldquo;arbitrary_curve&rdquo;
+categories = [ &ldquo;Machine Learning&rdquo;, &ldquo;Statistics&rdquo;, &ldquo;Math&rdquo; ]
+tags = [ &ldquo;Machine Learning&rdquo;, &ldquo;Statistics&rdquo;, &ldquo;Perceptron&rdquo;, &ldquo;Polynomials&rdquo; ]
+headline = &ldquo;Arbitrary curve fitting with perceptrons and extended linear regre&rdquo;
+readingtime = true
++++</p>
+<p>Is it possible to determine the best fitting curve to a series of data points just by knowing the form of the function?</p>
+<h2 id="the-perceptron">The Perceptron</h2>
+<p>The perceptron, a perceptively simple unit of the neural network, can demonstrate powerful predictive performance when given the right data.</p>
+<p>The most basic task that everyone&rsquo;s heard of is binary classification. Perceptrons a great at solving these problems because if they are presented data with a definite boundary separating the two classes of data, then they can predict where unseen data points may lie.</p>
+<p>There main limitation of this current perceptron model is its ability to only separate data points that are &ldquo;linearly separable&rdquo;. If the number of columns in the data is 2, then the points are separated by a line. Three, then separated by a plane. Four, then a hyperplane&hellip; and so on.</p>
+<p>With a few tweaks, one will be able to get the perceptron to do tasks like non linear regression. But first, let&rsquo;s take a look at the special case of linear regression.</p>
+<h2 id="the-linear-regression-problem">The Linear Regression Problem</h2>
+<p>Every line represented by a function is in the form <code>y = ax + b</code>.
+Given a bunch of linearly separable data (data pints that could be separated by a line), could you find the line drawn by <code>a and b</code>?</p>
+<p>As a normal human being, I would say, &ldquo;Sure, I&rsquo;ll just draw something like this&rdquo;</p>
+<!-- raw HTML omitted -->
+<p>You&rsquo;re able to tell what the line is because of the grouping of the points and the overall trend, but how would a computer be able to tell this though? Let&rsquo;s begin by critiquing the computer.</p>
+<h3 id="the-cost-function">The Cost Function</h3>
+<!-- raw HTML omitted -->
+<p>Let our current model (our best guess) be a function of <code>a and b</code>: <code>f(x) = ax+b</code> and given a set of points in the form of <code>(x, y)</code>, and the i&rsquo;th point is <code>(x_i, y_i)</code>, we can apply the sum of square errors to find the cost <code>C(a, b) = sum((y_i-f(x_i, a, b))**2)</code>.</p>
+<p>We want to be minimizing the error (the cost) by finding the best values of <code>a and b</code>, but we don&rsquo;t know what to do. We could try guessing the parameters&hellip; or even try all of them (grid searching), but that will take too long!</p>
+<p>Using knowledge from multivariable calculus, you could try holding <code>x</code> fixed and then treating <code>C(a, b)</code> as a surface&ndash; then maximize using the second derivative test. This is known as the analytical way of achieving the optimum <code>a and b</code> and it&rsquo;s guaranteed to work all the time.</p>
+<p>The catch is that it doesn&rsquo;t work on a broader class of nonlinear regression problems.</p>
+<h3 id="the-perceptron-approach">The Perceptron Approach</h3>
+<!-- raw HTML omitted -->
+<p>A perceptron has a number of inputs, a number of weights, and a step function. The inputs and weights are vectors and the activation function function works on scalers. Taking the dot product between the inputs and weights is the net input and the net input is passed through the activation function, which is sometimes just the net input itself (linear activation).</p>
+<p>This works well in modeling our linear regression problem because all of the inputs are multiplied by some parameters that we&rsquo;re trying to optimize. In this case, b can be represented by the bias of a perceptron (a value that always adds to the net input to prevent the perceptron from fitting <em>too</em> closely to the input data). The bias normally serves another purpose but it&rsquo;s a convenience here to represent the constant <code>b</code> as it sits without an input.</p>
+<p>We can then calculate the cost using the cost function described earlier.</p>
+<h3 id="gradient-descent">Gradient Descent</h3>
+<p>The weights of the perceptron are initialized to small but random values at the start of the perceptron&rsquo;s life.
+Sticking with our surface analogy, let&rsquo;s visualize our network&rsquo;s weight &lsquo;surface&rsquo;.</p>
+<!-- raw HTML omitted -->
+<p>Gradient descent tells us that to minimize our parameters, we need to take the steepest path from our current position. The common analogy is a ball rolling down a rough hill.</p>
+<p>You can find the steepest path by taking the negative of the gradient (partial derivative with respect to each weight) of the cost function. We have to then step by a very small amount to adapt to the roughness of the weight &lsquo;surface&rsquo; by the &ldquo;learning rate&rdquo; hyperparameter.</p>
+<pre tabindex="0"><code>import numpy as np
+import matplotlib.pyplot as plt
+
+fuzz = np.random.normal(size=(200), scale=50)
+x = np.linspace(0, 100, 200)
+y = 5*x+10+fuzz
+w = np.random.normal(size=(2), scale=0.1)
+for _ in range(15000):
+    err = sum((y-(w[1]*x+w[0]))**2)/len(x)
+    d_err = sum((y-(w[1]*x+w[0]+0.0001))**2)/len(x), sum((y-((w[1]+0.0001)*x+w[0]))**2)/len(x)
+    gradient = (d_err-err)/0.0001
+    w += -0.0002*gradient
+
+plt.scatter(x, y)
+plt.plot(x, w[1]*x+w[0], color=&#34;lime&#34;)
+plt.show()
+</code></pre><h2 id="polynomial-regression">Polynomial Regression</h2>
+<p>So what if we have a polynomial model that we need to fit to data? The process doesn&rsquo;t change.</p>
+<p>We can start with constructing the hessian matrix (to find the minimum of the surface&ndash; even though it&rsquo;s not a surface when there&rsquo;s more than 2 weights) and then taking its determinant. There&rsquo;s a lot of symmetry involved and lots of things should cancel out giving you the coefficients of the polynomial fit.</p>
+<h2 id="nonlinear-fitting">Nonlinear fitting</h2>
+<p>Borrowing the concepts from above, we could use this property of gradient descent and cost minimization to find the appropriate weights that match a function&rsquo;s description.</p>
+<p>For example, if I had the some scatter plot data and a model function <code>sin(ax+b)</code>, I can choose <code>a</code> and <code>b</code> to be the weights of the perceptron, and be able to find the cost value to be used to tweak the <code>a</code> and <code>b</code> values.</p>
+<p>Here is an example of a very tight fit between the network&rsquo;s weights plotted against scattered data fed into a function with similar weights with random noise added onto it.</p>
+<!-- raw HTML omitted -->
+<h2 id="conclusion">Conclusion</h2>
+<p>I stopped working on this blog post for a while and picked it back up months later. Lots of details were lost along the way so the post is written incoherently.</p>
+<p>Here is the link to the source</p>
+<!-- raw HTML omitted -->
+    </div>
+
+    
+<ul class="list-none pl-0 font-sm align-left">
+
+<hr>
+<li class="list-none">
+    Categories:
+    
+    <a class="inline-block mt-2 mr-2 border-none text-neutral-800 dark:text-neutral-200"
+       href="/categories/eng">
+    <span class="tag-item dark:bg-zinc-900 dark:hover:bg-zinc-700
+                 hover:bg-zinc-200 bg-zinc-100
+                 dark:border-zinc-600 py-0.5
+                 px-1 rounded-t border-b-2 border-zinc-300
+                 hover:border-zinc-500">
+    ENG
+    </span>
+</a>
+</li >
+
+
+<li class="list-none">
+    Tags:
+    
+    <a class="inline-block mt-2 mr-2 border-none text-neutral-800 dark:text-neutral-200"
+       href="/tags/math">
+        <span class="flex flex-row justify-start items-center
+                     dark:bg-zinc-900 dark:hover:bg-zinc-700
+                     hover:bg-zinc-300 bg-zinc-200
+                     dark:border-zinc-600 py-0.5
+                     px-1 rounded-t border-b-2 border-zinc-300
+                     hover:border-zinc-500">
+            
+            <img class="h-4 mr-2 inline" src="http://localhost:1313/images/tag_logo.svg"
+                 alt="Logo of a tag: indicates that a tag item follows.">
+            Math
+        </span>
+    </a>
+    
+    <a class="inline-block mt-2 mr-2 border-none text-neutral-800 dark:text-neutral-200"
+       href="/tags/machine-learning">
+        <span class="flex flex-row justify-start items-center
+                     dark:bg-zinc-900 dark:hover:bg-zinc-700
+                     hover:bg-zinc-300 bg-zinc-200
+                     dark:border-zinc-600 py-0.5
+                     px-1 rounded-t border-b-2 border-zinc-300
+                     hover:border-zinc-500">
+            
+            <img class="h-4 mr-2 inline" src="http://localhost:1313/images/tag_logo.svg"
+                 alt="Logo of a tag: indicates that a tag item follows.">
+            Machine Learning
+        </span>
+    </a>
+    
+</li>
+
+</ul>
+
+
+    
+
+    
+    <div class="text-neutral-500 mb-4">
+        Last modified <span itemprop="dateModified"
+                            datetime="2022-02-14T00:00:00Z"
+                            content="2022-02-14T00:00:00Z">
+        2022.02.14
+        </span>
+    </div>
+    
+</article>
+
+    </main>
+    <footer class="footer container h-10 text-center mt-1">
+<hr class="my-4">
+  <ul class="pl-0 mt-1">
+    
+    <li class="ml-2 first:before:content-none before:content-['•']
+               inline-block list-none">
+      <a class="ml-2 text-neutral-800
+                dark:text-neutral-400 border-none"
+          href="https://github.com/hugcis/hugo-astatine-theme">Code</a>
+    </li>
+    <li class="ml-2 first:before:content-none before:content-['•']
+                text-neutral-800 dark:text-neutral-400 inline-block list-none">
+      <span class="ml-2">© Andrew Lin 2024</span>
+    </li>
+  </ul>
+</footer>
+
+
+
+  </body>
+</html>

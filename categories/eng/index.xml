@@ -1,78 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ENG on Andrew&#39;s Blog</title>
-    <link>https://andw.xyz/categories/eng/</link>
-    <description>Recent content in ENG on Andrew&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>ENG on andw.xyz</title>
+    <link>http://localhost:1313/categories/eng/</link>
+    <description>Recent content in ENG on andw.xyz</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Mar 2022 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://andw.xyz/categories/eng/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>UCM AMPOM March 2022</title>
-      <link>https://andw.xyz/posts/ampom_mar_2022/</link>
-      <pubDate>Thu, 31 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://andw.xyz/posts/ampom_mar_2022/</guid>
-      <description>&lt;p&gt;Attempting to solve challenge for Mar 2022.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>UCM AMPOM February 2022</title>
-      <link>https://andw.xyz/posts/ampom_feb_2022/</link>
-      <pubDate>Sat, 26 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://andw.xyz/posts/ampom_feb_2022/</guid>
-      <description>&lt;p&gt;Attempting to solve challenge for Feb 2022.&lt;/p&gt;</description>
-    </item>
-    
+    <lastBuildDate>Mon, 14 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/eng/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arbitrary Curve Fitting</title>
-      <link>https://andw.xyz/posts/arbitary_curve/</link>
+      <link>http://localhost:1313/arbitrary-curve-fitting/</link>
       <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://andw.xyz/posts/arbitary_curve/</guid>
-      <description>&lt;p&gt;Is it possible to determine the best fitting curve to a series of data points just by knowing the form of the function?&lt;/p&gt;</description>
+      <guid>http://localhost:1313/arbitrary-curve-fitting/</guid>
+      <description>&lt;p&gt;+++&#xA;date = 2021-11-20T00:00:00+00:00&#xA;title = &amp;ldquo;Arbitrary Curve Fitting&amp;rdquo;&#xA;slug = &amp;ldquo;arbitrary_curve&amp;rdquo;&#xA;categories = [ &amp;ldquo;Machine Learning&amp;rdquo;, &amp;ldquo;Statistics&amp;rdquo;, &amp;ldquo;Math&amp;rdquo; ]&#xA;tags = [ &amp;ldquo;Machine Learning&amp;rdquo;, &amp;ldquo;Statistics&amp;rdquo;, &amp;ldquo;Perceptron&amp;rdquo;, &amp;ldquo;Polynomials&amp;rdquo; ]&#xA;headline = &amp;ldquo;Arbitrary curve fitting with perceptrons and extended linear regre&amp;rdquo;&#xA;readingtime = true&#xA;+++&lt;/p&gt;&#xA;&lt;p&gt;Is it possible to determine the best fitting curve to a series of data points just by knowing the form of the function?&lt;/p&gt;</description>
     </item>
-    
-    <item>
-      <title>Switching to Hugo</title>
-      <link>https://andw.xyz/posts/hugo_switch/</link>
-      <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://andw.xyz/posts/hugo_switch/</guid>
-      <description>&lt;p&gt;Jekyll, self hosting a hacked together templating server, or Hugo&amp;hellip; the possibilities are endless.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>The Quest for the Atomic G Orbital</title>
-      <link>https://andw.xyz/posts/g_orbital/</link>
-      <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://andw.xyz/posts/g_orbital/</guid>
-      <description>&lt;p&gt;The 5 year journey to finding the G Orbital of an atom.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>SATs and GPAs matter! ...But by how much?</title>
-      <link>https://andw.xyz/posts/sat_gpa/</link>
-      <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://andw.xyz/posts/sat_gpa/</guid>
-      <description>&lt;p&gt;Looking at the correlation between SATs, GPAs, and college admissions.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How I Got into Coding</title>
-      <link>https://andw.xyz/posts/first_code/</link>
-      <pubDate>Tue, 27 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://andw.xyz/posts/first_code/</guid>
-      <description>&lt;p&gt;In today&amp;rsquo;s digitized age, we are more connected to computers than ever before.&lt;/p&gt;</description>
-    </item>
-    
   </channel>
 </rss>
