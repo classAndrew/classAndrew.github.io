@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Graphics on andw.xyz</title>
-    <link>https://andw.xyz/categories/graphics/</link>
-    <description>Recent content in Graphics on andw.xyz</description>
+    <title>NumPy on andw.xyz</title>
+    <link>https://andw.xyz/tags/numpy/</link>
+    <description>Recent content in NumPy on andw.xyz</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 05 Jul 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://andw.xyz/categories/graphics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://andw.xyz/tags/numpy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Very Vectorized Raytracer</title>
       <link>https://andw.xyz/posts/vec_raytracer/</link>
       <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://andw.xyz/posts/vec_raytracer/</guid>
       <description>It&amp;rsquo;s 2024 and I haven&amp;rsquo;t updated this website in over 2 years so it&amp;rsquo;s time it gets some attention.&#xA;Click here to skip the preface-y section.&#xA;This is actually a project that I completed three years ago by following the Ray Tracing in One Weekend series while learning Rust. I originally implemented the ray tracer in C which got me caught up in a pointless search for micro-optimizations. I stopped after finishing reflections for metals.</description>
-    </item>
-    <item>
-      <title>The Quest for the Atomic G Orbital</title>
-      <link>https://andw.xyz/posts/g_orbital/</link>
-      <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
-      <guid>https://andw.xyz/posts/g_orbital/</guid>
-      <description>Summary The original article was written in 2021. This is a 2024 summary / rewrite.&#xA;I never finished writing the original G-orbital blog post and I&amp;rsquo;m not sure where I was trying to go with it originally.&#xA;I learned in high school chemistry about VSEPR theory and some behavior of electrons in the context of chemistry (well as much as a high schooler could understand). They showed these cool images of atomic orbitals.</description>
     </item>
   </channel>
 </rss>

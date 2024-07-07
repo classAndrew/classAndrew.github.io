@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R6JE1F6NP2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R6JE1F6NP2');
+</script>
+     
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1"><title>A Very Vectorized Raytracer - andw.xyz</title>
+<meta property="og:title" content="A Very Vectorized Raytracer - andw.xyz">
+<meta property="og:type" content="article">
+
+
+<meta property="og:image" content="https://i.giphy.com/MCZFvnoWvOWTCNm6P2.webp">
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://i.giphy.com/MCZFvnoWvOWTCNm6P2.webp">
+
+<meta property="og:url" content="https://andw.xyz/posts/vec_raytracer/"><meta property="og:description" content="Andrew&#39;s personal website. Discussions about microarchitecture, high-performance computing, and data science.">
+<meta name="Description" property="description" content="Andrew&#39;s personal website. Discussions about microarchitecture, high-performance computing, and data science.">
+
+
+<meta property="keywords" content ="numpy, pytorch, raytracing">
+
+
+
+<link rel="stylesheet" href="https://andw.xyz/css/style.min.css">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link href="https://andw.xyz/index.xml" type="application/atom+xml" rel="alternate" title="Sitewide Atom feed" />
+<meta name="theme-color" content="#ffffff">
+
+
+<script>function updateMode(){localStorage.theme==="dark"||!("theme"in localStorage)&&window.matchMedia("(prefers-color-scheme: dark)").matches?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark")}function toggleMode(){localStorage.theme==="dark"?localStorage.theme="light":localStorage.theme="dark",updateMode()}window.onload=updateMode();function toggleMenu(){let e=document.getElementById("navbar-default");e.classList.contains("hidden")?e.classList.remove("hidden"):e.classList.add("hidden")}</script>
+
+  </head>
+  <body>
+    
+    
+    
+
+    <header class="md:px-0 px-2">
+        <nav >
+  <div class="container flex flex-wrap justify-between items-center mx-auto">
+    <div class="nav-main my-2.5">
+      <a href="https://andw.xyz/" class="nav-title py-2.5 text-2xl
+               text-zinc-600 dark:text-zinc-300 hover:border-b-0">andw.xyz</a>
+    </div>
+    <button type="button"
+            onclick="toggleMenu()"
+            class="inline-flex items-center p-2 ml-3
+                  text-sm text-gray-500
+                  rounded-lg md:hidden hover:bg-gray-100
+                  focus:outline-none focus:ring-2
+                  focus:ring-gray-200 dark:text-gray-400
+                  dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-default"
+            aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor"
+             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1
+                           0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0
+                           01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0
+                           01-1-1z" clip-rule="evenodd"></path>
+        </svg>
+    </button>
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul class="grid md:grid-flow-col items-center justify-between text-lg
+                 my-2.5 grid-cols-1 pl-0 text-center">
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/post/">Posts</a>
+        </li>
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/categories/">Categories</a>
+        </li>
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/tags/">Tags</a>
+        </li>
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/about/">About</a>
+        </li>
+        
+        <li class="h-7 pl-2.5 pr-0 list-none">
+          <button type="button" onclick="toggleMode()" class="h-full"  aria-label="Toggle between dark and light mode">
+            <img class="h-7 w-7 max-h-full mb-1.5 p-1.5 hidden dark:inline"
+                 id="ligh-mode-button-img"
+                 alt="A sun icon for switching to light mode"
+                 src="https://andw.xyz/img/light_mode.svg">
+            <img class="h-7 w-7 max-h-full mb-1.5 p-1.5 inline dark:hidden"
+                 id="dark-mode-button-img"
+                 alt="A moon icon for switching to dark mode"
+                 src="https://andw.xyz/img/dark_mode.svg">
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    </header>
+    <main class="content h-card container mt-2 m-auto
+                 leading-loose md:px-0 px-2 z-0"
+          role="main">
+    
+<article class="article h-entry" itemprop="mainEntity" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="title-container">
+        <h1 class="article-title p-name" itemprop="name">A Very Vectorized Raytracer</h1>
+        
+        <b><i itemprop="headline" class="article-headline text-lg p-summary">
+            Raytracing with... Tensors?
+        </i></b>
+        
+        <div class="flex justify-between items-center">
+            
+            <a class="text-lg text-gray-600 dark:text-gray-400 border-none u-url" href="https://andw.xyz/posts/vec_raytracer/">
+                <time itemprop="datePublished" class="dt-published"
+                    datetime="2024-07-05T00:00:00Z"
+                    content="2024-07-05T00:00:00Z">
+                    2024.07.05
+                </time>
+            </a>
+            
+            
+                
+                <a class="text-gray-600 dark:text-gray-400 text-right border-none p-author h-card" rel="author" href="https://andw.xyz/" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Andrew Lin</span></a>
+                
+            
+        </div>
+        
+        <div>
+            Reading time: 15 minutes.
+        </div>
+        
+    </div>
+
+    <div class="article-content e-content" itemprop="articleBody">
+        <p>It&rsquo;s 2024 and I haven&rsquo;t updated this website in over 2 years so it&rsquo;s time it gets some attention.</p>
+<p>Click <a href="/posts/vec_raytracer#ray-tracing-in-20-minutes">here</a> to skip the preface-y section.</p>
+<p>This is actually a project that I completed three years ago by following the <a href="https://raytracing.github.io/">Ray Tracing in One Weekend</a> series while learning Rust. I originally implemented the ray tracer in C which got me caught up in a pointless search for micro-optimizations. I stopped after finishing reflections for metals. Then I tried implementing the same ray tracer in Rust which also turned into too much time spent on micro-optimization and not enough time spent on actually building the ray tracer.</p>
+<p>If there was a lesson learned from that it would be to avoid doing something &ldquo;for the sake of optimization&rdquo; unless you actually looked at the emitted assembly. Compilers are crazy good these days. I don&rsquo;t think I ever beat the compiler not counting algorithmic improvements. Sometimes even looking at the assembly isn&rsquo;t enough because</p>
+<ol>
+<li>I&rsquo;m not a seasoned assembly programmer</li>
+<li>There&rsquo;s a lot going in the background during CPU execution that isn&rsquo;t visible at the assembly level. Just because <code>gcc -O3</code> employs some branchless code doesn&rsquo;t mean the CPU will be executing your program faster (<a href="https://stackoverflow.com/a/43941854">most of the times</a> it will though).</li>
+</ol>
+<p>So instead of trying to create the best ray tracer out there, why not try to create one using one of the slowest programming languages?</p>
+<h2 id="python-">Python 🐍</h2>
+<p>I might write another article dedicated to explaining how Python works from source code to execution, but I&rsquo;ll give a brief summary right now.</p>
+<ol>
+<li>Your source code is in a <code>.py</code> file</li>
+<li>You invoke the CPython interpreter with <code>python</code> which will start reading your file</li>
+<li>It goes line-by-line through your code and translates them into bytecode.</li>
+<li>It runs the simpler bytecode instructions (you may have noticed a <code>__pycache__</code> folder when running code with module imports. Bytecode is cached there).</li>
+</ol>
+<p>This process is unbearably slow since it has to do the translation process every single time it sees new code. Even if functions are already seen and translated to bytecode, the execution of the bytecode is still not native. This is contrasted with a programming language like Java which runs bytecode in the JVM which will run native machine code after translating the bytecode (<a href="https://en.wikipedia.org/wiki/Just-in-time_compilation">JIT Compilation</a>).</p>
+<p>There are many attempts at speeding up Python like <code>Numba</code> package which JIT compiles your code without changes to the interpreter, or <code>pypy</code> which is an entirely separate interpreter that JIT compiles your code. I&rsquo;ve <a href="/posts/ampom_feb_2022">used numba before</a> and it can give on the order of 100x speedup.</p>
+<p>Profiling Python code is one way to get a good idea of which parts of your code are slow and can benefit from these libraries. I used the <code>cProfile</code> program to get the timings.</p>
+ 
+<div style="margin-left: auto; margin-right: auto; display: block; width: 80%;">
+  <img src="/img/vec_raytracer_1.png">
+  <small style="margin-top: 0.4rem; margin-bottom: 0.4rem; margin-left: auto; margin-right: auto; display: block; width: 80%; text-align: center">
+    SnakeViz can visualize cProfile output.
+  </small>
+</div>
+
+<h2 id="numpy-is-the-best">NumPy is the best</h2>
+<p><a href="https://numpy.org/">NumPy</a> isn&rsquo;t recompiling your Python code to execute natively; rather, it’s already compiled to execute natively, and your Python code is the one calling it.</p>
+<p><a href="https://numpy.org/">NumPy</a> is a incredibly fast Python library implemented with C++. Manipulating large blocks of numbers (ndarrays or &ldquo;Tensors&rdquo;) tends to be a common theme in scientific computing and <a href="https://numpy.org/">NumPy</a> provides a convenient interface for a high level language like Python.</p>
+<p>It&rsquo;s still missing ample multicore support for common vector operations (e.g. all element-wise ops) but it does its best to run on multiple cores where it can if it&rsquo;s linked against a good <a href="https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms">BLAS</a> library.</p>
+<p>All your program&rsquo;s slowdown is now placed on CPython&rsquo;s overhead. If you can keep it minimal then you&rsquo;ve got code almost as fast as C++.</p>
+<h2 id="ray-tracing-in-30-minutes">Ray Tracing in 30 minutes</h2>
+<p>If you draw a line from the origin (camera) to a pixel in a plane that is facing flat to the camera, you get a ray (a point and a direction).</p>
+<p>All objects in a scene have a geometry and material. A ray might intersect with an object&rsquo;s geometry (shape). If it does, then the material influence&rsquo;s the hit location&rsquo;s color and determines how the ray will scatter (choose a new direction).</p>
+<p>Some general rules for materials</p>
+<ol>
+<li>Metals: Ray incident angle = Ray reflection angle. Good for mirrors</li>
+<li>Diffuse: Ray scattering is <a href="https://en.wikipedia.org/wiki/Lambertian_reflectance">Lambertian</a>. Pick a random direction to scatter the ray. Leads to smooth objects.</li>
+<li>Dialectric: Follows <a href="https://en.wikipedia.org/wiki/Snell%27s_law">Snell&rsquo;s law</a>: \( \eta_1 \sin(\theta_1) = \eta_2 \sin(\theta_2) \). Materials that bend light like glass</li>
+</ol>
+<p>Being able to tell if a ray intersects with an object depends on its geometry. The first <a href="https://raytracing.github.io/">Ray Tracing in One Weekend</a> book only uses spheres.</p>
+<p>This makes the math a lot simpler.</p>
+<p>\[
+\begin{align*}
+r^2 &amp;= (x-c_x)^2 + (y-c_y)^2 + (z-c_z)^2 \quad (\text{sphere with radius } r \text{ shifted by c}) \\
+&amp;= (\vec{\mathbf{p}}(t) - \vec{\mathbf{c}}) \cdot (\vec{\mathbf{p}}(t) - \vec{\mathbf{c}})  \quad (\vec{\mathbf{p}}(t) \text{ is the ray}) \\
+&amp;= (\vec{\mathbf{p_0}} + t \vec{\mathbf{m}} - \vec{\mathbf{c}}) \cdot (\vec{\mathbf{p_0}} + t \vec{\mathbf{m}} - \vec{\mathbf{c}})  \quad (\text{expanding } \vec{\mathbf{p}}(t)) \\
+&amp;= \underbrace{(\vec{\mathbf{p_0}} - \vec{\mathbf{c}}) \cdot (\vec{\mathbf{p_0}} - \vec{\mathbf{c}})}_{c + r^2} + t \cdot\underbrace{ 2\vec{\mathbf{m}}\cdot(\vec{\mathbf{p_0}} - \vec{\mathbf{c}})}_b +t^2 \underbrace{\vec{\mathbf{m}}\cdot \vec{\mathbf{m}}}_a   \\
+\end{align*}
+\]</p>
+<p>Subtracting \(r^2\) from both sides will give us \(a, b, c \) coefficients for solving the roots of a quadratic equation.</p>
+<p>There are three cases:</p>
+<ol>
+<li>Negative discriminant (ray misses the object)</li>
+<li>Zero discriminant (ray skims the object)</li>
+<li>Positive discriminant (ray goes through the object, if it doesn&rsquo;t bounce). Choose the \(t\) that gives the closest point.</li>
+</ol>
+<p>The normal of the hit location, a vector perpendicular to the surface of the sphere, is computed by \( \overrightarrow{\mathbf{p_{hit}}} - \vec{\mathbf{c}} \).</p>
+<p>The ray color is recursively computed: <code>ray_color(old_ray_dir, world) = attenuation * ray_color(new_ray_dir, world)</code>.</p>
+<p>In rasterization, the surface normal is dotted with the direction of the light source in the vertex shader to obtain shadows and lighting. In ray tracing, the normal is used for reflections.</p>
+<h3 id="ray-marching">Ray Marching</h3>
+<p>In this ray tracer, ray-to-object intersections are computed analytically. There is also ray marching which all the <a href="https://www.shadertoy.com/">shadertoy</a> demos use. Ray marching iteratively solves the hit location by using signed-distance fields of objects. The sphere equation used in this project is technically a signed distance field so switching to ray marching is not hard.</p>
+<h3 id="path-tracing">Path Tracing</h3>
+<p>Ray tracers capture reflections, but some objects in the scene may be dimly lit. It&rsquo;s easy to achieve global illumination in an open scene where all rays don&rsquo;t hit an object get assigned a bright color value but harder in enclosed spaces. There&rsquo;s also some concern about the photorealism of ray tracing.</p>
+<p>Ambient lighting is less pronounced in ray tracing because rays can only take paths from the camera. Those rays will also only get assigned a bright color value if they hit a light source. Another more general approach to ray tracing is Path Tracing: rays start from light sources and bounce their way to the camera. Path tracing produces better results but is slower since few rays cross the camera which is a single point so many rays need to be cast to sufficiently build an accurate color value for each pixel.</p>
+<h3 id="by-the-book-python-implementation">By The Book Python Implementation</h3>
+<p>Initially, I implemented the raytracer where all the steps of a ray&rsquo;s bounces are computed one after another. Each ray&rsquo;s color is computed independently, so there is some parallelism that can be advantageous.</p>
+<p>Demonstration of what&rsquo;s being done by a ray-by-ray (pixel-by-pixel) ray tracer shown here:</p>
+ 
+<div style="margin-left: auto; margin-right: auto; display: block; width: 80%;">
+  <img src="https://i.giphy.com/V3uCPYGR1Mo6E2udrv.webp">
+  <small style="margin-top: 0.4rem; margin-bottom: 0.4rem; margin-left: auto; margin-right: auto; display: block; width: 80%; text-align: center">
+    *not actually pixel by pixel* I just divided the work into blocks because the pixels are too small to see (it just looks like scan lines).
+  </small>
+</div>
+
+<p>Multiple rays are actually created per pixel. The resulting color of all the rays in that pixel are averaged to create a smoother looking image. It&rsquo;s not exactly the same ray that gets cast because the scattering for each ray may be random, but even if all scene objects were metals or transparent, each of these per-pixel rays have a slightly different initial direction. This also mitigates aliasing, a problem that is ubiquitous throughout science and engineering, especially in signal processing. An easy aliasing fix is to increase the sampling rate; in this case the sampling rate is the number of rays shot into a pixel.</p>
+ 
+<div style="margin-left: auto; margin-right: auto; display: block; width: 80%;">
+  <img src="https://i.giphy.com/hRhbJe5IR3f1XX8U5P.webp">
+  <small style="margin-top: 0.4rem; margin-bottom: 0.4rem; margin-left: auto; margin-right: auto; display: block; width: 80%; text-align: center">
+    Increasing the samples per pixel. Can you see the difference?
+  </small>
+</div>
+
+<h3 id="light-transport-equation">Light Transport Equation</h3>
+<p>As an aside, this is also somewhat related to the <a href="https://en.wikipedia.org/wiki/Monte_Carlo_integration">Monte-Carlo</a> method of computationally solving an intractable integral. In fact, the third book of the Ray Tracing series is dedicated to covering this. The color of each ray is determined by the Light Transport Equation (LTE):</p>
+<p>\[
+\text{Color}_o(\mathbf{\vec{x}}, \vec{\omega_o}, \lambda) = \int_{\vec{\omega_i}} A(\mathbf{\vec{x}}, \vec{\omega_i}, \vec{\omega_o}, \lambda) \cdot \text{pScatter}(\mathbf{\vec{x}}, \vec{\omega_i}, \vec{\omega_o}, \lambda) \cdot \text{Color}_i(\mathbf{\vec{x}}, \vec{\omega_i}, \lambda) \, d\omega
+\]</p>
+ 
+<small style="margin-top: 0.4rem; margin-bottom: 0.4rem; margin-left: auto; margin-right: auto; display: block; width: 80%; text-align: center">
+  Taken directly from <a href="https://raytracing.github.io/books/RayTracingTheRestOfYourLife.html#lightscattering/scattering">here</a>. If path tracing had a Newton's second law, then this would be it.
+</small>
+
+<p>It says, &ldquo;The color of an outgoing ray given its hit position and direction is the sum of the albedo multiplied by the color of the incoming ray, weighted by the probability that the ray scattered in that direction, for all possible ways to scatter. The wavelength, hitpoint, outgoing direction after scattering, and incoming direction influence the albedo color&rdquo;.</p>
+<p>Even though it&rsquo;s a single integral, you actually have two degrees-of-freedom to sweep through if you really want to exhaustively compute it. Remember, this is a recursive function, so a single ray&rsquo;s calculations grows exponentionally with bounce depth which is why <a href="https://en.wikipedia.org/wiki/Monte_Carlo_integration">Monte-Carlo</a> is preferred.</p>
+<p>The LTE is a very broad equation. In the context of this project&rsquo;s ray tracer, \( \text{A}(&hellip;) \) is a constant depending on the material, \( \text{pScatter}(&hellip;) \) is always 1, and \( d\omega \) also equals 1&hellip; so there is no integral. When multiple rays are shot into the same pixel, it&rsquo;s sort of like adding more sampling points (pScatter is the pdf we are trying to approximate, and multiple rays will choose to scatter in different directions) with equal probability.</p>
+<h2 id="vectorizing">Vectorizing</h2>
+<p><a href="https://raytracing.github.io/">Ray Tracing in One Weekend</a> implements Vec3 as classes and overloads the arithmetic operators. All scene objects are also classes that belong to a class heirarchy of hittable scene objects.</p>
+<p>An immediate use case for <a href="https://numpy.org/">NumPy</a> is to replace Python Vec3 classes, but a complete render of a diffuse sphere still takes 640s. For reference, C and Rust take around 0.5s. There is still too much time being spent in CPython instead of actual computation due to overhead from control statements, stack management, indirection, etc.</p>
+<h3 id="eliminating-almost-every-loop">Eliminating <em>almost</em> every loop</h3>
+<p>Instead of following a pixel-by-pixel execution order like:</p>
+<pre tabindex="0"><code>build ray1, cast ray1, color ray1, build ray2, cast ray2, color ray2, build ray3, cast ray3, color ray3
+</code></pre><p>It&rsquo;s better to do stage-by-stage execution order like:</p>
+<pre tabindex="0"><code>build ray1, build ray2, build ray3, cast ray1, cast ray2, cast ray3, color ray1, color ray2, color ray3
+</code></pre><p>But if you vectorize one stage of the pipeline, then you need to vectorize all stages. The performance benefit is worth it though; the vectorized version runs in about 2s, 320x faster than the original. We let <a href="https://numpy.org/">NumPy</a> handle most of the computation, bonus points if it paralllizes anything (see <code>np.dot</code>), which will execute native instructions that can take advantage of architectural specifics dedicated to vector math like <a href="https://en.wikipedia.org/wiki/AVX-512">AVX</a>.</p>
+<h3 id="control-flow-by-index-masking">Control flow by index masking</h3>
+<p>There are some parts of code that inevitably require control flow. For example, the discriminant must be checked before taking the square root.
+Luckily, the outcomes of these &ldquo;fail&rdquo; cases are usually &ldquo;do not proceed&rdquo; which means it is not included in the end result.</p>
+<p>A negative discriminant means that there wasn&rsquo;t a hit, so only take the positive values to move on to the next step (computing the square root).</p>
+<p>But we also need to check if there&rsquo;s two solutions. If there is, then take the hit point that is within a range of values.</p>
+<p>This can be done by masking values to ignore those that cannot proceed. In practice, the indices of the values that satisfy the condition are used (whenever possible, below is an example where both are needed). I used <code>timeit</code> and a basic write-to-array example using indices and it completes 2.5x faster than with a boolean mask.</p>
+<p>This is how it looks in code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">is_hit_sphere</span>(sphere_center: vec, sphere_radius: <span style="color:#24909d">float</span>, tmin: <span style="color:#24909d">float</span>, tmax: <span style="color:#24909d">float</span>, rays: np.ndarray) -&gt; np.ndarray[<span style="color:#24909d">bool</span>]:
+</span></span><span style="display:flex;"><span>  <span style="color:#999;font-style:italic"># [ ... code that computes the a, b, c coefficients ... ]</span>
+</span></span><span style="display:flex;"><span>  discriminant = b**<span style="color:#3677a9">2</span> - <span style="color:#3677a9">4</span>*a*c <span style="color:#999;font-style:italic"># these are element-wise ops</span>
+</span></span><span style="display:flex;"><span>  has_hit = discriminant &gt;= <span style="color:#3677a9">0.</span> 
+</span></span><span style="display:flex;"><span>  sqrtd = np.sqrt(discriminant)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  valid_roots = np.ones_like(sqrtd, dtype=<span style="color:#24909d">bool</span>)
+</span></span><span style="display:flex;"><span>  roots = (-b - sqrtd) / (<span style="color:#3677a9">2</span> * a) 
+</span></span><span style="display:flex;"><span>  <span style="color:#999;font-style:italic"># in sequential code, this would be if tmin &lt;= root &lt;= tmax</span>
+</span></span><span style="display:flex;"><span>  first_roots_not_within_idx, = (tmin &gt; roots | roots &gt; tmax).nonzero() <span style="color:#999;font-style:italic"># use index</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#999;font-style:italic"># mask out a, b, c values instead of using the original ones to reduce computation of discriminant and its sqrt</span>
+</span></span><span style="display:flex;"><span>  a, b, c = a[first_roots_not_within_idx], b[first_roots_not_within_idx], c[first_roots_not_within_idx]
+</span></span><span style="display:flex;"><span>  discriminant = b**<span style="color:#3677a9">2</span> + <span style="color:#3677a9">4</span>*a*c 
+</span></span><span style="display:flex;"><span>  sqrtd = np.sqrt(discriminant)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  roots[first_roots_not_within_idx] = (-b + sqrtd) / (<span style="color:#3677a9">2</span> * a) 
+</span></span><span style="display:flex;"><span>  second_roots_not_within_mask = tmin &gt; roots | roots &gt; tmax <span style="color:#999;font-style:italic"># *must* use mask</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  valid_roots[second_roots_not_within_mask] = <span style="color:#6ab825;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span>  has_hit[has_hit.nonzero()[<span style="color:#3677a9">0</span>]] &amp;= valid_roots
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">return</span> has_hit 
+</span></span></code></pre></div><p>Every frame starts with basically a <code>10 x 640 x 320 x 2 x 3</code> tensor and ends with a <code>10 x 640 x 320 x 3</code> tensor which is reduced to a <code>640 x 320 x 3</code> RGB image.
+<em>10 is the sample size, 640 x 320 the canvas dimensions, 2 x 3 for ray position and direction.</em></p>
+<p>Over time, the rays will eventually get &ldquo;culled&rdquo;, whether it is hitting the scatter depth or not hitting anything. The <code>has_hit</code> value returned from <code>is_hit_sphere(...)</code> is a mask that can be used to select which rays get to live to the next depth of scattering. This is the biggest difference compared to the sequential, pixel-by-pixel ray tracer.</p>
+<blockquote>
+<p>Some performance details: another difference is that the rays are not stored in a 3D, 4D, or any N-D structure really. It&rsquo;s flat (treated like a list of 2D values, in the array-of-structures sense). This means that ray points and ray directions are right next to each other in the contiguous block of memory and loaded into the same cache line. Numpy does not actually move things around in memory when calling <code>.reshape()</code> as it uses strided access so the colors can be reshaped to a 2D image at no cost. Putting cache aside, strided access <em>could</em> impact memory prefetching but the memory controllers these days are smart enough to detect <a href="https://en.wikipedia.org/wiki/Cache_prefetching#Strided_prefetching">strided access</a> patterns. Finally, <a href="https://raytracing.github.io/">Ray Tracing in One Weekend</a> uses a hit_record for every single ray but I use a structures-of-arrays pattern instead (writes to hit_records are indexed by the has_hit mask or indices).</p>
+</blockquote>
+<h3 id="handling-materials">Handling Materials</h3>
+<p>I could write the entire ray tracer without Python loop constructs if it weren&rsquo;t for materials. Although I could still do it by either</p>
+<ul>
+<li>Cheating, using .map() over all scene objects</li>
+<li>Creating a <code>10 x 640 x 320 x 2 x 3</code> tensor for every material</li>
+</ul>
+<p>Neither are great options, so I stuck with a <code>for</code> loop over each scene object. Each scene object has an associated material id, so the type of material can be recorded in the <code>hit_record</code>. This is done by getting the indices / mask of rays that hit the object.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#ffa500">@dataclass</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">class</span> <span style="color:#447fcf;text-decoration:underline">HitRecord</span>: 
+</span></span><span style="display:flex;"><span>  <span style="color:#999;font-style:italic"># ... structure of 6 arrays ...</span>
+</span></span><span style="display:flex;"><span>  material_idx: np.ndarray[<span style="color:#24909d">int</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">hit_all</span>(rays: np.ndarray, hit_records: HitRecord) -&gt; np.ndarray[<span style="color:#24909d">int</span>]
+</span></span><span style="display:flex;"><span>  hits = np.zeros_like(rays, dtype=<span style="color:#24909d">bool</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">for</span> scene_obj, material_idx <span style="color:#6ab825;font-weight:bold">in</span> all_scene_objects:
+</span></span><span style="display:flex;"><span>    obj_hits = is_hit_sphere(scene_obj, rays, ...)
+</span></span><span style="display:flex;"><span>    hits[obj_hits] = <span style="color:#6ab825;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#999;font-style:italic"># assign material to hit</span>
+</span></span><span style="display:flex;"><span>    hit_records.material_idx[obj_hits] = material_idx 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">return</span> hits.nonzero()[<span style="color:#3677a9">0</span>] 
+</span></span></code></pre></div><p>In <a href="https://raytracing.github.io/">Ray Tracing in One Weekend</a>, each <code>hit_record</code> has a <code>std::shared_ptr&lt;Material&gt;</code> reference which uses the class type known at runtime to choose which <code>scatter()</code> function to call. I don&rsquo;t use classes because there&rsquo;s not point in packing extra data into the <code>ndarray</code> nor can I get any <a href="https://numpy.org/">NumPy</a> speedup with it. So the <code>material_idx</code> <em>is</em> the class type.</p>
+<p>Instead of vtables, I do:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">ray_color</span>(rays, scene_objects, depth, ...):
+</span></span><span style="display:flex;"><span>  <span style="color:#999;font-style:italic"># ...</span>
+</span></span><span style="display:flex;"><span>  colors = <span style="color:#999;font-style:italic"># ... initialize</span>
+</span></span><span style="display:flex;"><span>  hit_records = <span style="color:#999;font-style:italic"># ... initialize it </span>
+</span></span><span style="display:flex;"><span>  hits_idx = hit_all(rays, hit_records)
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  glass_idx, diffuse_idx, metal_idx, ... = get_material_arrays(hit_records.material_idx)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  new_rays = <span style="color:#999;font-style:italic"># intialize new rays</span>
+</span></span><span style="display:flex;"><span>  new_rays[..., :, <span style="color:#3677a9">0</span>] = hit_records.hit_pos[hits_idx] <span style="color:#999;font-style:italic"># hit positions</span>
+</span></span><span style="display:flex;"><span>  new_rays[glass_idx, :, <span style="color:#3677a9">1</span>] = scatter_glass(rays[glass_idx])
+</span></span><span style="display:flex;"><span>  new_rays[diffuse_idx, :, <span style="color:#3677a9">1</span>] = scatter_glass(rays[diffuse_idx])
+</span></span><span style="display:flex;"><span>  new_rays[metal_idx, :, <span style="color:#3677a9">1</span>] = scatter_glass(rays[metal_idx])
+</span></span><span style="display:flex;"><span>  <span style="color:#999;font-style:italic"># ... other scatter functions</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#999;font-style:italic"># this isn&#39;t correct code but a simplification since albedo needs to get multipled</span>
+</span></span><span style="display:flex;"><span>  colors[hits_idx] = ray_color(new_rays, scene_objects, depth-<span style="color:#3677a9">1</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#999;font-style:italic"># ...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">return</span> colors
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># fun fact:</span>
+</span></span><span style="display:flex;"><span>A[[<span style="color:#3677a9">0</span>, <span style="color:#3677a9">1</span>, <span style="color:#3677a9">2</span>], :, <span style="color:#3677a9">2</span>] = <span style="color:#3677a9">81</span> <span style="color:#999;font-style:italic"># sets the array, but</span>
+</span></span><span style="display:flex;"><span>A[[<span style="color:#3677a9">0</span>, <span style="color:#3677a9">1</span>, <span style="color:#3677a9">2</span>]][:, <span style="color:#3677a9">2</span>] = <span style="color:#3677a9">81</span> <span style="color:#999;font-style:italic"># does not</span>
+</span></span></code></pre></div><p>I could add a table of <code>scatter</code> functions to emulate the extra level of indirection of vtables, but there&rsquo;s not point in doing that unless I have too many materials.
+Color is tied to the material meaning new material ids must be created even if they have the same type of material. This isn&rsquo;t necessary since you can always add another array to the <code>HitRecords</code> structure to store colors.</p>
+<p><code>get_material_arrays</code> is an interesting function because it gets slow if the number of materials exceeds <code>log(num_rays)</code>. It&rsquo;s possible to do an <code>argsort()</code> to get the material arrays, but the simplest solution is</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">get_material_arrays</span>(material_indices):
+</span></span><span style="display:flex;"><span>  all_material_indices = []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">for</span> k <span style="color:#6ab825;font-weight:bold">in</span> <span style="color:#24909d">range</span>(MAX_MATERIAL_IDS):
+</span></span><span style="display:flex;"><span>    all_material_indices.append((material_indices == k).nonzero()[<span style="color:#3677a9">0</span>])
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">return</span> all_material_indices
+</span></span></code></pre></div><h3 id="random-unit-vectors">Random Unit Vectors</h3>
+<p>Getting random vectors is a critical section, both in the threading sense (contention over RNG) and the performance sense (called by every <code>scatter</code> function), of the code. It&rsquo;s not correct to randomly pick \( \theta \) and \( \phi \) to get points on a sphere for the same reason why you <a href="https://stackoverflow.com/a/50746409">can&rsquo;t for a circle</a>.</p>
+<p>The function I have is very inefficient (batched pick and reject), so there&rsquo;s room for improvement.</p>
+<h3 id="einsum">Einsum</h3>
+<p>I used <a href="https://numpy.org/doc/stable/reference/generated/numpy.einsum.html">einsum()</a> in one other project (gradient of vector w.r.t to matrix) so I&rsquo;m new to this function.</p>
+<p>The best way to think about it is to think that you are summing over all the indices missing on the right hand once you take the dot product of the ones on the left.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>np.einsum(<span style="color:#ed9d13">&#39;ij, ij -&gt; i&#39;</span>, A, B)
+</span></span></code></pre></div><p>I had to use it because <code>np.dot()</code> can&rsquo;t &ldquo;take dot product between each vector in two list-of-vectors&rdquo; without a <code>for</code> loop.</p>
+<h2 id="ray-tracing-in-tensorflow-or-pytorch">Ray Tracing in TensorFlow or PyTorch</h2>
+<p>PyTorch and TensorFlow are both libraries for computation graphs, automatic differentiation, and tensor manipulation. They are highly optimized for computing the gradients of a function. I will dedicate an article in the future to explaining them.</p>
+<p>It&rsquo;s pretty easy to port the code to PyTorch.
+Just need to</p>
+<ol>
+<li>Replace all instances of <code>np.ndarray</code> with <code>torch.Tensor</code></li>
+<li>set default device to GPU and add <code>.to(gpu_device)</code> where needed</li>
+<li>Be careful with <code>tensor[indices, :, 1]</code> which might give slices of <code>len(indices) x 1 x 3</code> instead of <code>len(indices) x 3</code></li>
+<li><code>np.random.uniform(shape)</code> -&gt; <code>torch.FloatTensor(shape).uniform_()</code></li>
+<li><code>np.fabs</code> -&gt; <code>torch.abs()</code></li>
+<li><code>np.isclose(arr, 0., atol=1e-8)</code> -&gt; <code>(torch.abs(arr) &lt; 1e-8).all()</code> (torch has <code>.isclose()</code> but does not broadcast the comparison)</li>
+</ol>
+<p>For some reason, even though PyTorch enables multithreaded <code>einsum()</code>, the code is still 8x slower than the <a href="https://numpy.org/">NumPy</a>.</p>
+<h2 id="wrapping-up">Wrapping up</h2>
+<p>Vectorized code is easily parallelized, but I don&rsquo;t directly leverage any kind of core-level parallelism. Rendering still takes a while even if each frame takes 5s.</p>
+<p>There are libraries that enable multicore parallelism, but it was easiest for me to just assign each thread a range of frames to work on given the same code.</p>
+<p>Here&rsquo;s the final result. It took 20 minutes to complete which is way slower than the path tracers that can even run in the web browser.</p>
+ 
+<div style="margin-left: auto; margin-right: auto; display: block; width: 80%;">
+  <img src="https://i.giphy.com/MCZFvnoWvOWTCNm6P2.webp">
+  <small style="margin-top: 0.4rem; margin-bottom: 0.4rem; margin-left: auto; margin-right: auto; display: block; width: 100%; text-align: center">
+    Blue diffuse sphere, yellow diffuse sphere, yellow metallic sphere, and red dialectric sphere
+  </small>
+</div>
+
+
+    </div>
+
+    
+<ul class="list-none pl-0 font-sm align-left">
+
+<hr>
+<li class="list-none">
+    Categories:
+    
+    <a class="inline-block mt-2 mr-2 border-none text-neutral-800 dark:text-neutral-200"
+       href="/categories/python">
+    <span class="tag-item dark:bg-zinc-900 dark:hover:bg-zinc-700
+                 hover:bg-zinc-200 bg-zinc-100
+                 dark:border-zinc-600 py-0.5
+                 px-1 rounded-t border-b-2 border-zinc-300
+                 hover:border-zinc-500">
+    Python
+    </span>
+</a>
+    <a class="inline-block mt-2 mr-2 border-none text-neutral-800 dark:text-neutral-200"
+       href="/categories/graphics">
+    <span class="tag-item dark:bg-zinc-900 dark:hover:bg-zinc-700
+                 hover:bg-zinc-200 bg-zinc-100
+                 dark:border-zinc-600 py-0.5
+                 px-1 rounded-t border-b-2 border-zinc-300
+                 hover:border-zinc-500">
+    Graphics
+    </span>
+</a>
+    <a class="inline-block mt-2 mr-2 border-none text-neutral-800 dark:text-neutral-200"
+       href="/categories/math">
+    <span class="tag-item dark:bg-zinc-900 dark:hover:bg-zinc-700
+                 hover:bg-zinc-200 bg-zinc-100
+                 dark:border-zinc-600 py-0.5
+                 px-1 rounded-t border-b-2 border-zinc-300
+                 hover:border-zinc-500">
+    Math
+    </span>
+</a>
+</li >
+
+
+<li class="list-none">
+    Tags:
+    
+    <a class="inline-block mt-2 mr-2 border-none text-neutral-800 dark:text-neutral-200"
+       href="/tags/numpy">
+        <span class="flex flex-row justify-start items-center
+                     dark:bg-zinc-900 dark:hover:bg-zinc-700
+                     hover:bg-zinc-300 bg-zinc-200
+                     dark:border-zinc-600 py-0.5
+                     px-1 rounded-t border-b-2 border-zinc-300
+                     hover:border-zinc-500">
+            
+            <img class="h-4 mr-2 inline" src="https://andw.xyz/images/tag_logo.svg"
+                 alt="Logo of a tag: indicates that a tag item follows.">
+            NumPy
+        </span>
+    </a>
+    
+    <a class="inline-block mt-2 mr-2 border-none text-neutral-800 dark:text-neutral-200"
+       href="/tags/pytorch">
+        <span class="flex flex-row justify-start items-center
+                     dark:bg-zinc-900 dark:hover:bg-zinc-700
+                     hover:bg-zinc-300 bg-zinc-200
+                     dark:border-zinc-600 py-0.5
+                     px-1 rounded-t border-b-2 border-zinc-300
+                     hover:border-zinc-500">
+            
+            <img class="h-4 mr-2 inline" src="https://andw.xyz/images/tag_logo.svg"
+                 alt="Logo of a tag: indicates that a tag item follows.">
+            PyTorch
+        </span>
+    </a>
+    
+    <a class="inline-block mt-2 mr-2 border-none text-neutral-800 dark:text-neutral-200"
+       href="/tags/raytracing">
+        <span class="flex flex-row justify-start items-center
+                     dark:bg-zinc-900 dark:hover:bg-zinc-700
+                     hover:bg-zinc-300 bg-zinc-200
+                     dark:border-zinc-600 py-0.5
+                     px-1 rounded-t border-b-2 border-zinc-300
+                     hover:border-zinc-500">
+            
+            <img class="h-4 mr-2 inline" src="https://andw.xyz/images/tag_logo.svg"
+                 alt="Logo of a tag: indicates that a tag item follows.">
+            Raytracing
+        </span>
+    </a>
+    
+</li>
+
+</ul>
+
+
+    
+
+    
+    <div class="text-neutral-500 mb-4">
+        Last modified <span itemprop="dateModified"
+                            datetime="2024-07-05T00:00:00Z"
+                            content="2024-07-05T00:00:00Z">
+        2024.07.05
+        </span>
+    </div>
+    
+</article>
+
+    </main>
+    <footer class="footer container h-10 text-center mt-1">
+<hr class="my-4">
+  <ul class="pl-0 mt-1">
+    
+    <li class="ml-2 first:before:content-none before:content-['•']
+               inline-block list-none">
+      <a class="ml-2 text-neutral-800
+                dark:text-neutral-400 border-none"
+          href="https://github.com/hugcis/hugo-astatine-theme">Code</a>
+    </li>
+    <li class="ml-2 first:before:content-none before:content-['•']
+                text-neutral-800 dark:text-neutral-400 inline-block list-none">
+      <span class="ml-2">© Andrew Lin 2024</span>
+    </li>
+  </ul>
+</footer>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+
+
+  </body>
+</html>

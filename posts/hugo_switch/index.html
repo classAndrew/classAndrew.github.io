@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R6JE1F6NP2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R6JE1F6NP2');
+</script>
+     
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1"><title>Switching to Hugo - andw.xyz</title>
+<meta property="og:title" content="Switching to Hugo - andw.xyz">
+<meta property="og:type" content="article">
+
+
+<meta property="og:image" content="img/main.jpg">
+
+<meta property="og:url" content="https://andw.xyz/posts/hugo_switch/"><meta property="og:description" content="Andrew&#39;s personal website. Discussions about microarchitecture, high-performance computing, and data science.">
+<meta name="Description" property="description" content="Andrew&#39;s personal website. Discussions about microarchitecture, high-performance computing, and data science.">
+
+
+<meta property="keywords" content ="markdown, web">
+
+
+
+<link rel="stylesheet" href="https://andw.xyz/css/style.min.css">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link href="https://andw.xyz/index.xml" type="application/atom+xml" rel="alternate" title="Sitewide Atom feed" />
+<meta name="theme-color" content="#ffffff">
+
+
+<script>function updateMode(){localStorage.theme==="dark"||!("theme"in localStorage)&&window.matchMedia("(prefers-color-scheme: dark)").matches?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark")}function toggleMode(){localStorage.theme==="dark"?localStorage.theme="light":localStorage.theme="dark",updateMode()}window.onload=updateMode();function toggleMenu(){let e=document.getElementById("navbar-default");e.classList.contains("hidden")?e.classList.remove("hidden"):e.classList.add("hidden")}</script>
+
+  </head>
+  <body>
+    
+    
+    
+
+    <header class="md:px-0 px-2">
+        <nav >
+  <div class="container flex flex-wrap justify-between items-center mx-auto">
+    <div class="nav-main my-2.5">
+      <a href="https://andw.xyz/" class="nav-title py-2.5 text-2xl
+               text-zinc-600 dark:text-zinc-300 hover:border-b-0">andw.xyz</a>
+    </div>
+    <button type="button"
+            onclick="toggleMenu()"
+            class="inline-flex items-center p-2 ml-3
+                  text-sm text-gray-500
+                  rounded-lg md:hidden hover:bg-gray-100
+                  focus:outline-none focus:ring-2
+                  focus:ring-gray-200 dark:text-gray-400
+                  dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-default"
+            aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor"
+             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1
+                           0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0
+                           01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0
+                           01-1-1z" clip-rule="evenodd"></path>
+        </svg>
+    </button>
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul class="grid md:grid-flow-col items-center justify-between text-lg
+                 my-2.5 grid-cols-1 pl-0 text-center">
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/post/">Posts</a>
+        </li>
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/categories/">Categories</a>
+        </li>
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/tags/">Tags</a>
+        </li>
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/about/">About</a>
+        </li>
+        
+        <li class="h-7 pl-2.5 pr-0 list-none">
+          <button type="button" onclick="toggleMode()" class="h-full"  aria-label="Toggle between dark and light mode">
+            <img class="h-7 w-7 max-h-full mb-1.5 p-1.5 hidden dark:inline"
+                 id="ligh-mode-button-img"
+                 alt="A sun icon for switching to light mode"
+                 src="https://andw.xyz/img/light_mode.svg">
+            <img class="h-7 w-7 max-h-full mb-1.5 p-1.5 inline dark:hidden"
+                 id="dark-mode-button-img"
+                 alt="A moon icon for switching to dark mode"
+                 src="https://andw.xyz/img/dark_mode.svg">
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    </header>
+    <main class="content h-card container mt-2 m-auto
+                 leading-loose md:px-0 px-2 z-0"
+          role="main">
+    
+<article class="article h-entry" itemprop="mainEntity" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="title-container">
+        <h1 class="article-title p-name" itemprop="name">Switching to Hugo</h1>
+        
+        <b><i itemprop="headline" class="article-headline text-lg p-summary">
+            Jekyll, self hosting a hacked together templating server, or Hugo... the possibilities are endless.
+        </i></b>
+        
+        <div class="flex justify-between items-center">
+            
+            <a class="text-lg text-gray-600 dark:text-gray-400 border-none u-url" href="https://andw.xyz/posts/hugo_switch/">
+                <time itemprop="datePublished" class="dt-published"
+                    datetime="2021-11-20T00:00:00Z"
+                    content="2021-11-20T00:00:00Z">
+                    2021.11.20
+                </time>
+            </a>
+            
+            
+                
+                <a class="text-gray-600 dark:text-gray-400 text-right border-none p-author h-card" rel="author" href="https://andw.xyz/" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Andrew Lin</span></a>
+                
+            
+        </div>
+        
+        <div>
+            Reading time: 2 minutes.
+        </div>
+        
+    </div>
+
+    <div class="article-content e-content" itemprop="articleBody">
+        <p>Jekyll, self hosting a hacked together templating server, or Hugo&hellip; the possibilities are endless.</p>
+<h2 id="motivation">Motivation</h2>
+<p>I&rsquo;ve been wanting to switch to something other than my own templating system for a while now. However, I had a couple reasons for keeping the templating system:</p>
+<ul>
+<li>&ldquo;Absolute control&rdquo; over everything
+<ul>
+<li>I won&rsquo;t have to go digging for loopholes to get certain features I want working</li>
+</ul>
+</li>
+<li>Learning</li>
+<li>Software independence
+<ul>
+<li>A bit ironic considering the previous project had <em>way too many</em> npm dependencies anyway</li>
+</ul>
+</li>
+</ul>
+<p>Things eventually got messy. I mean&hellip; I had code that looked like this :joy: :</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">const</span> reqPaths: {[p: string]: string} = {
+</span></span><span style="display:flex;"><span>  <span style="color:#ed9d13">&#34;/&#34;</span>: <span style="color:#ed9d13">&#34;about.html&#34;</span>, 
+</span></span><span style="display:flex;"><span>  <span style="color:#ed9d13">&#34;/url&#34;</span>: <span style="color:#ed9d13">&#34;url.html&#34;</span>, 
+</span></span><span style="display:flex;"><span>  <span style="color:#ed9d13">&#34;/softsim&#34;</span>: <span style="color:#ed9d13">&#34;softsim.html&#34;</span>, 
+</span></span><span style="display:flex;"><span>  <span style="color:#ed9d13">&#34;/iou&#34;</span>: <span style="color:#ed9d13">&#34;iou.html&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ed9d13">&#34;/truthy&#34;</span>: <span style="color:#ed9d13">&#34;truthy.html&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ed9d13">&#34;/blog&#34;</span>: <span style="color:#ed9d13">&#34;blog.html&#34;</span>
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#24909d">Object</span>.keys(reqPaths).forEach(reqPath =&gt; {
+</span></span><span style="display:flex;"><span>  app.get(reqPath, (req: Request, res: Response, next: NextFunction) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#999;font-style:italic">// it&#39;s not actually a blog, but I conveniently wrote this to treat this with arbitrary keys
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"></span>    readBlog(path.join(process.cwd(), <span style="color:#ed9d13">`public/views/pages/</span><span style="color:#ed9d13">${</span>reqPaths[reqPath]<span style="color:#ed9d13">}</span><span style="color:#ed9d13">`</span>)).then((blog: Blog) =&gt; {
+</span></span><span style="display:flex;"><span>      blog.url = <span style="color:#ed9d13">&#34;https://andw.me&#34;</span>+req.url;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      res.render(<span style="color:#ed9d13">&#34;index&#34;</span>, {
+</span></span><span style="display:flex;"><span>        blog: blog
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    }).<span style="color:#6ab825;font-weight:bold">catch</span>((err: <span style="color:#24909d">Error</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      console.log(err);
+</span></span><span style="display:flex;"><span>      <span style="color:#999;font-style:italic">// 404 them lol
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"></span>      next();
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>Futhermore, I noticed that there was egress limit on Google Cloud Platform&rsquo;s free tier, and although I haven&rsquo;t crossed the limit yet (and that CloudFlare does an amazing job with regionalized caching), I wanted to make sure that I wasn&rsquo;t getting charged for serving too much data.</p>
+<p>The solution was to switch to a static site that is hosted generously by a reliable provider: Github Pages.</p>
+<h2 id="a-website-from-scratch">A website from scratch?</h2>
+<p>Pfft&hellip; no way!</p>
+<p>The main reason I used a markdown-to-html generator in the first place was to <em>avoid</em> writing HTML. I am by no means a proper frontend designer, so markdown is a solid first choice to write blogs.</p>
+<p>I didn&rsquo;t want to deal with any backend code or want to go through the trouble of hosting for anything dynamic.</p>
+<p>I started with Jekyll, a static site generator. Jekyll comes to mind when most people think of static web generators built around markdown.</p>
+<h2 id="jekyll">Jekyll</h2>
+<p>The reason why I didn&rsquo;t stick with Jekyll is because I didn&rsquo;t like the look of any of the themes.</p>
+<p>I found an &ldquo;awesome list&rdquo; of Jekyll themes but even then, there still wasn&rsquo;t one that stood out. Minimal Mistakes is a good theme, but I couldn&rsquo;t get it to work.</p>
+<p>The Jekyll themes that looked &ldquo;good&rdquo; had to be bought from the jekyllthemes site.</p>
+<p>I will definitely be using Jekyll for my other projects though.</p>
+<h2 id="hugo">Hugo</h2>
+<p>I looked over a couple of other people&rsquo;s blogs to see what Jekyll themes they were using. I ran into a Jekyll alternative instead: Hugo. Hugo came with many more themes that I could use.</p>
+<p>I picked Dream by gleny0ung to use because I liked the cell-like blog previews on the home page.</p>
+<h2 id="moving-forward">Moving forward</h2>
+<p>My old website can still be accessed at <a href="https://old.andw.me">old.andw.me</a>. (update from 2024: link now broken)</p>
+<p>I still need to figure out and where I&rsquo;m going to place my old tools like <a href="https://old.andw.me/truthy">truthy</a> and the URL shortener. (update from 2024: link now broken)</p>
+    </div>
+
+    
+<ul class="list-none pl-0 font-sm align-left">
+
+<hr>
+<li class="list-none">
+    Categories:
+    
+    <a class="inline-block mt-2 mr-2 border-none text-neutral-800 dark:text-neutral-200"
+       href="/categories/hugo">
+    <span class="tag-item dark:bg-zinc-900 dark:hover:bg-zinc-700
+                 hover:bg-zinc-200 bg-zinc-100
+                 dark:border-zinc-600 py-0.5
+                 px-1 rounded-t border-b-2 border-zinc-300
+                 hover:border-zinc-500">
+    Hugo
+    </span>
+</a>
+</li >
+
+
+<li class="list-none">
+    Tags:
+    
+    <a class="inline-block mt-2 mr-2 border-none text-neutral-800 dark:text-neutral-200"
+       href="/tags/markdown">
+        <span class="flex flex-row justify-start items-center
+                     dark:bg-zinc-900 dark:hover:bg-zinc-700
+                     hover:bg-zinc-300 bg-zinc-200
+                     dark:border-zinc-600 py-0.5
+                     px-1 rounded-t border-b-2 border-zinc-300
+                     hover:border-zinc-500">
+            
+            <img class="h-4 mr-2 inline" src="https://andw.xyz/images/tag_logo.svg"
+                 alt="Logo of a tag: indicates that a tag item follows.">
+            markdown
+        </span>
+    </a>
+    
+    <a class="inline-block mt-2 mr-2 border-none text-neutral-800 dark:text-neutral-200"
+       href="/tags/web">
+        <span class="flex flex-row justify-start items-center
+                     dark:bg-zinc-900 dark:hover:bg-zinc-700
+                     hover:bg-zinc-300 bg-zinc-200
+                     dark:border-zinc-600 py-0.5
+                     px-1 rounded-t border-b-2 border-zinc-300
+                     hover:border-zinc-500">
+            
+            <img class="h-4 mr-2 inline" src="https://andw.xyz/images/tag_logo.svg"
+                 alt="Logo of a tag: indicates that a tag item follows.">
+            web
+        </span>
+    </a>
+    
+</li>
+
+</ul>
+
+
+    
+
+    
+    <div class="text-neutral-500 mb-4">
+        Last modified <span itemprop="dateModified"
+                            datetime="2021-11-20T00:00:00Z"
+                            content="2021-11-20T00:00:00Z">
+        2021.11.20
+        </span>
+    </div>
+    
+</article>
+
+    </main>
+    <footer class="footer container h-10 text-center mt-1">
+<hr class="my-4">
+  <ul class="pl-0 mt-1">
+    
+    <li class="ml-2 first:before:content-none before:content-['•']
+               inline-block list-none">
+      <a class="ml-2 text-neutral-800
+                dark:text-neutral-400 border-none"
+          href="https://github.com/hugcis/hugo-astatine-theme">Code</a>
+    </li>
+    <li class="ml-2 first:before:content-none before:content-['•']
+                text-neutral-800 dark:text-neutral-400 inline-block list-none">
+      <span class="ml-2">© Andrew Lin 2024</span>
+    </li>
+  </ul>
+</footer>
+
+
+
+  </body>
+</html>

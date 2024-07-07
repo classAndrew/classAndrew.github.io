@@ -162,6 +162,7 @@
 <p>For example, I claimed that modifying a perceptron to find the coefficients of a polynomial magically gives it the ability to fit any function. What I was really doing was rediscovering feature mapping. It&rsquo;s the same process as &ldquo;<a href="https://bmild.github.io/fourfeat/">fourier features</a>&rdquo; that are used so often in generative networks for injecting high frequency details in the output image. Instead of doing \( \sin(x), \sin(2x), &hellip; \cos(x), \cos(2x) \), &hellip; I was doing \( x, x^2, x^3, &hellip; \)</p>
 <p>and the perceptron would find the coefficients to a lease-squares polynomial fit.</p>
 <p>It turns out that doing this on nonlinear, and non-polynomial functions like \( \sin(x) + \cos(2x) \) will still give good fits by the modified perceptron because <strong>it was just finding the first few terms of the taylor polynomial</strong>. So no big news there. It tends to do a poor job if the curve gets too complicated or if the data is too noisy because gradient descent cannot find a local minima. It was just a very roundabout way to do taylor approximation and I didn&rsquo;t realize it at the time.</p>
+<p><strong>tl;dr</strong> linear perceptrons can fit all functions that form a vector space given that you know the form of the function.</p>
 <p>Anyways, here&rsquo;s the original stuff:</p>
 <p>Is it possible to determine the best fitting curve to a series of data points just by knowing the form of the function?</p>
 <h2 id="the-perceptron">The Perceptron</h2>

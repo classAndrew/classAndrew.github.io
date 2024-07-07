@@ -4,12 +4,57 @@
     
     <url>
         <loc>https://andw.xyz/</loc>
-        <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+        <lastmod>2024-07-05T00:00:00+00:00</lastmod>
     </url>
     
     <url>
         <loc>https://andw.xyz/post/</loc>
-        <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+        <lastmod>2024-07-05T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://andw.xyz/posts/vec_raytracer/</loc>
+        <lastmod>2024-07-05T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://andw.xyz/categories/</loc>
+        <lastmod>2024-07-05T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://andw.xyz/categories/graphics/</loc>
+        <lastmod>2024-07-05T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://andw.xyz/categories/math/</loc>
+        <lastmod>2024-07-05T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://andw.xyz/tags/numpy/</loc>
+        <lastmod>2024-07-05T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://andw.xyz/categories/python/</loc>
+        <lastmod>2024-07-05T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://andw.xyz/tags/pytorch/</loc>
+        <lastmod>2024-07-05T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://andw.xyz/tags/raytracing/</loc>
+        <lastmod>2024-07-05T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://andw.xyz/tags/</loc>
+        <lastmod>2024-07-05T00:00:00+00:00</lastmod>
     </url>
     
     <url>
@@ -18,22 +63,7 @@
     </url>
     
     <url>
-        <loc>https://andw.xyz/categories/</loc>
-        <lastmod>2022-03-31T00:00:00+00:00</lastmod>
-    </url>
-    
-    <url>
         <loc>https://andw.xyz/tags/constraint-solver/</loc>
-        <lastmod>2022-03-31T00:00:00+00:00</lastmod>
-    </url>
-    
-    <url>
-        <loc>https://andw.xyz/categories/math/</loc>
-        <lastmod>2022-03-31T00:00:00+00:00</lastmod>
-    </url>
-    
-    <url>
-        <loc>https://andw.xyz/tags/</loc>
         <lastmod>2022-03-31T00:00:00+00:00</lastmod>
     </url>
     
@@ -73,12 +103,22 @@
     </url>
     
     <url>
+        <loc>https://andw.xyz/categories/hugo/</loc>
+        <lastmod>2021-11-20T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
         <loc>https://andw.xyz/tags/machine-learning/</loc>
         <lastmod>2021-11-20T00:00:00+00:00</lastmod>
     </url>
     
     <url>
         <loc>https://andw.xyz/categories/machine-learning/</loc>
+        <lastmod>2021-11-20T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://andw.xyz/tags/markdown/</loc>
         <lastmod>2021-11-20T00:00:00+00:00</lastmod>
     </url>
     
@@ -103,6 +143,16 @@
     </url>
     
     <url>
+        <loc>https://andw.xyz/posts/hugo_switch/</loc>
+        <lastmod>2021-11-20T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://andw.xyz/tags/web/</loc>
+        <lastmod>2021-11-20T00:00:00+00:00</lastmod>
+    </url>
+    
+    <url>
         <loc>https://andw.xyz/tags/chemistry/</loc>
         <lastmod>2021-09-16T00:00:00+00:00</lastmod>
     </url>
@@ -114,11 +164,6 @@
     
     <url>
         <loc>https://andw.xyz/tags/glsl/</loc>
-        <lastmod>2021-09-16T00:00:00+00:00</lastmod>
-    </url>
-    
-    <url>
-        <loc>https://andw.xyz/categories/graphics/</loc>
         <lastmod>2021-09-16T00:00:00+00:00</lastmod>
     </url>
     
